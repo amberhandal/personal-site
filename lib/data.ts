@@ -5,6 +5,7 @@ import { LuBook, LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import sollumGif from "@/public/sollum.gif";
 import wordanalyticsImg from "@/public/wordanalytics.png";
+import { BsBookFill } from "react-icons/bs";
 
 export const links = [
   {
@@ -39,7 +40,7 @@ export const experiencesData = [
     location: "Gainesville, FL",
     description:
       "I started as a Biology major, planning on a minor in Computer Science. After joining a club called Gatortech and becoming an officer, I decided to make the switch to Computer and Information Science and Engineering.",
-    icon: React.createElement(LuBook),
+    icon: React.createElement(BsBookFill),
     date: "May 2019",
   },
   {
