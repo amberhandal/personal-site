@@ -1,9 +1,9 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+import { CgCode, CgWorkAlt } from "react-icons/cg";
+import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
+import { LuBook, LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
+import sollumGif from "@/public/sollum.gif";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
 export const links = [
@@ -38,25 +38,41 @@ export const experiencesData = [
     title: "Started my education at University of Florida",
     location: "Gainesville, FL",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
+      "I started as a Biology major, planning on a minor in Computer Science. After joining a club called Gatortech and becoming an officer, I decided to make the switch to Computer and Information Science and Engineering.",
+    icon: React.createElement(LuBook),
+    date: "May 2019",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "CodePath iOS Tech Fellow",
+    location: "Gainesville, FL",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "Instructed a 14-week course of 25+ students for designing and developing functional apps for iOS devices. Topics taught in this course included networking, RESTful API implementation, and user authentication.",
+    icon: React.createElement(FaSwift),
+    date: "August 2021 - December 2021",
+  },
+  {
+    title: "Software Engineer Intern",
+    location: "Infotech | Gainesville, FL",
+    description:
+      "Worked mostly on the frontend of a web app utiizing JavaScript and Vue to meet the company's needs. Lead a cohort of interns throughout the product development cycle using agile methodology to optimize workflow.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "May 2022 - August 2022",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Associate Software Engineer",
+    location: "Infotech | Gainesville, FL",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "Used TypeScript, GraphQL, and Prisma to contribute to a comprehensive web-based bidding platform for contractors, centralizing bidding tools to boost efficiency and reduce costs. Currently, I use Ruby on Rails and AWS to contribute to the backend for a web-based platform aiding contractors and subcontractors in the transportation industry.",
+    icon: React.createElement(CgWorkAlt),
+    date: "September 2022 - present",
+  },
+  {
+    title: "Fullstack Software Engineer",
+    location: "Artsea | Remote",
+    description:
+      "Pioneering fullstack solutions for a networking web application using the T3 Stack. Designing and implementing the UI/UX with Tailwind CSS and Next.js, focusing on responsive, user-friendly interfaces. Creating robust backend functionalities, including routers and endpoints, with TypeScript and tRPC, for efficient data handling.",
+    icon: React.createElement(CgCode),
+    date: "December 2023 - present",
   },
 ] as const;
 
@@ -64,22 +80,15 @@ export const projectsData = [
   {
     title: "Sollum",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "I worked as a systems and gameplay engineer in this project over the course of 4 months on a xfn team of 25 students.",
+    tags: ["C#", "Unity"],
+    imageUrl: sollumGif,
   },
   {
     title: "Hagglr",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
-  },
-  {
-    title: "Word Analytics",
-    description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+      "Creating a web app similar to eBay but for reverse-auctioning.",
+    tags: ["Ruby on Rails", "JavaScript", "SQL", "Bootstrap"],
     imageUrl: wordanalyticsImg,
   },
 ] as const;
