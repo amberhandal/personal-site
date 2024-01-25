@@ -90,7 +90,7 @@ export const projectsData = [
   {
     title: "Hagglr",
     description:
-      "Creating a web app similar to eBay but for reverse-auctioning.",
+      "Creating a web application similar to eBay but for reverse-auctioning.",
     tags: ["Ruby on Rails", "JavaScript", "SQL", "Bootstrap"],
     link: "",
     imageUrl: wordanalyticsImg,
