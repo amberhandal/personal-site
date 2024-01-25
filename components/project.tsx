@@ -36,7 +36,9 @@ export default function Project({
           <h3 className="text-2xl font-semibold">{title}</h3>
           <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
             {description}
-            {link}
+            <a href={link} className="text-gray-800 dark:text-white/70 hover:underline mt-4">
+            Visit Project
+            </a>
           </p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
             {tags.map((tag, index) => (
