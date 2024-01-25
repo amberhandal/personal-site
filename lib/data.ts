@@ -6,6 +6,7 @@ import corpcommentImg from "@/public/corpcomment.png";
 import sollumGif from "@/public/sollum.gif";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 import { BsBookFill } from "react-icons/bs";
+import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
 
 export const links = [
   {
@@ -83,6 +84,7 @@ export const projectsData = [
     description:
       "I worked as a systems and gameplay engineer in this project over the course of 4 months on a xfn team of 25 students.",
     tags: ["C#", "Unity"],
+    link: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
   },
   {
@@ -90,6 +92,7 @@ export const projectsData = [
     description:
       "Creating a web app similar to eBay but for reverse-auctioning.",
     tags: ["Ruby on Rails", "JavaScript", "SQL", "Bootstrap"],
+    link: "",
     imageUrl: wordanalyticsImg,
   },
 ] as const;
