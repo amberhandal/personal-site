@@ -59,16 +59,15 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-10 mt-4 px-4 text-xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hi, I'm Amber!</span> I'm pursuing my 
-        <span className="font-bold">Master's in Robotics</span> at 
-        <span className="font-bold">Northwestern University</span>. I have{" "}
-        <span className="font-bold">3 years</span> of backend engineering experience, and my interests are in{" "}
-        <span className="italic">embedded software engineering</span> and{" "}
-        <span className="italic">computer vision</span>.
+        <span className="font-bold"> Master's in Robotics</span> at 
+        <span className="font-bold"> Northwestern University</span>. I have
+        3 years of backend engineering experience, and my interests are in embedded software engineering and
+        computer vision.
 
       </motion.h1>
 
@@ -98,7 +97,7 @@ export default function Intro() {
           download="Amber-Handal-Resume.pdf"
         >
           Download resume{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+          <HiDownload className="opacity-60 group\href{mailto:amberhandal@outlook.com}-hover:translate-y-1 transition" />
         </a>
 
         <a
