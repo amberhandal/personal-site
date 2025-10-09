@@ -83,13 +83,14 @@ export const projectsData = [
     description:
       "RGB-D pen detection with OpenCV and RealSense alignment with Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
-    link: "",
+    link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
     imageUrl: pen_img, // replace with a relevant gif when available
   },
   {
     title: "SMMARTS Programming Volunteering",
     description:
       "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations.",
+    tags: ["C#", "Unity"],
     link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
     imageUrl: smmartGif, 
   },
