@@ -83,8 +83,8 @@ export const projectsData = [
     description:
       "RGB-D pen detection with OpenCV and RealSense alignment with Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
-    link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
-    imageUrl: pen_img, // replace with a relevant gif when available
+    link: "https://github.com/amberhandal/Arm-Demo",
+    imageUrl: pen_img,
   },
   {
     title: "SMMARTS Programming Volunteering",
@@ -107,8 +107,8 @@ export const projectsData = [
     description:
       "Backend services for an educational Pokemon Go-style mobile game.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
-    link: "",
-    imageUrl: crittercollectorGif, // placeholder
+    link: "https://github.com/cacticouncil/critter-collector-backend",
+    imageUrl: crittercollectorGif,
   },
 ] as const;
 
