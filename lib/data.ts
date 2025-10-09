@@ -4,6 +4,8 @@ import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
 import { LuBook, LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import sollumGif from "@/public/sollum.gif";
+import smmartGif from "@/public/SMMART.gif";
+import pen_img from "@/public/pen_temp.jpg";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 import { BsBookFill } from "react-icons/bs";
 import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
@@ -83,15 +85,15 @@ export const projectsData = [
       "RGB-D pen detection with OpenCV (HSV + contours) and RealSense alignment; hand–eye calibration (Kabsch) to map camera→robot; Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
     link: "",
-    imageUrl: sollumGif, // replace with a relevant image when available
+    imageUrl: pen_img, // replace with a relevant image when available
   },
   {
     title: "SMMARTS Programming Volunteering",
     description:
       "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations; real-time analytics, performance feedback, and clinician-driven iteration.",
     tags: ["C#", "Unity", "Algorithms", "Signal Processing"],
-    link: "",
-    imageUrl: sollumGif, // placeholder
+    link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
+    imageUrl: smmartGif, 
   },
   {
     title: "Critter Collector",
@@ -108,14 +110,6 @@ export const projectsData = [
     tags: ["C#", "Unity", "Gameplay"],
     link: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
-  },
-  {
-    title: "Hagglr",
-    description:
-      "Reverse-auction web app concept (eBay-style). Prototyped listings, bidding, and account flows.",
-    tags: ["Ruby on Rails", "JavaScript", "SQL", "Bootstrap"],
-    link: "",
-    imageUrl: wordanalyticsImg,
   },
 ] as const;
 
