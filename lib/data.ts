@@ -99,7 +99,7 @@ export const projectsData = [
       "Backend services for an educational AR-style mobile game: Node.js/MongoDB APIs, auth/validation, location-based spawns; collaborated with a 25-person research team and migrated to UE5.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
     link: "",
-    imageUrl: corpcommentImg, // placeholder
+    imageUrl: sollumGif, // placeholder
   },
   {
     title: "Sollum",
