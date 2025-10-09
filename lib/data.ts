@@ -81,7 +81,7 @@ export const projectsData = [
   {
     title: "Vision-Guided Pen Recognition and Robotic Grasping",
     description:
-      "RGB-D pen detection with OpenCV (HSV + contours) and RealSense alignment; hand–eye calibration (Kabsch) to map camera→robot; Interbotix/ROS2 control for closed-loop grasping.",
+      "RGB-D pen detection with OpenCV and RealSense alignment with Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
     link: "",
     imageUrl: pen_img, // replace with a relevant gif when available
@@ -89,15 +89,14 @@ export const projectsData = [
   {
     title: "SMMARTS Programming Volunteering",
     description:
-      "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations; real-time analytics, performance feedback, and clinician-driven iteration.",
-    tags: ["C#", "Unity", "Algorithms", "Signal Processing"],
+      "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations.",
     link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
     imageUrl: smmartGif, 
   },
   {
     title: "Sollum",
     description:
-      "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed title with a 25-person cross-functional team; C#/Unity mechanics and optimization.",
+      "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed game.",
     tags: ["C#", "Unity"],
     link: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
@@ -105,7 +104,7 @@ export const projectsData = [
   {
     title: "Critter Collector",
     description:
-      "Backend services for an educational AR-style mobile game: Node.js/MongoDB APIs, auth/validation, location-based spawns; collaborated with a 25-person research team and migrated to UE5.",
+      "Backend services for an educational Pokemon Go-style mobile game.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
     link: "",
     imageUrl: crittercollectorGif, // placeholder
