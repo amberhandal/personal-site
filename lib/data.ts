@@ -3,6 +3,7 @@ import { CgCode, CgWorkAlt } from "react-icons/cg";
 import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
 import { LuBook, LuGraduationCap } from "react-icons/lu";
 import sollumGif from "@/public/sollum.gif";
+import crittercollectorGif from "@/public/crittercollectorGif.gif";
 import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
 import { BsBookFill } from "react-icons/bs";
@@ -94,20 +95,20 @@ export const projectsData = [
     imageUrl: smmartGif, 
   },
   {
-    title: "Critter Collector",
-    description:
-      "Backend services for an educational AR-style mobile game: Node.js/MongoDB APIs, auth/validation, location-based spawns; collaborated with a 25-person research team and migrated to UE5.",
-    tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
-    link: "",
-    imageUrl: sollumGif, // placeholder
-  },
-  {
     title: "Sollum",
     description:
       "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed title with a 25-person cross-functional team; C#/Unity mechanics and optimization.",
     tags: ["C#", "Unity"],
     link: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
+  },
+  {
+    title: "Critter Collector",
+    description:
+      "Backend services for an educational AR-style mobile game: Node.js/MongoDB APIs, auth/validation, location-based spawns; collaborated with a 25-person research team and migrated to UE5.",
+    tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
+    link: "",
+    imageUrl: crittercollectorGif, // placeholder
   },
 ] as const;
 
