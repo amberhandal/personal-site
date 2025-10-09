@@ -28,12 +28,11 @@ export default function About() {
         <span className="font-medium"> Associate Software Engineer</span> while I continued my education. During most of my time as a part-time employee, I worked on the backend a project that utilized 
         <span className="font-medium"> TypeScript, GraphQL, and Prisma</span>. As of the beginning of 2024, I am a full-time employee, now working as a 
         <span className="font-medium"> backend developer</span> using <span className="font-medium">Ruby on Rails and AWS</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect.
+        My favorite part of programming is the problem-solving aspect.
       </p>
 
       <p>
-        <span className="italic">Aside from work and school</span>, I love cooking, going to the movies, playing wallyball and boardgames with my friends, playing
+        <span className="italic">Aside from work and school</span>, I love cooking, going to the movies, bouldering, playing wallyball and boardgames with my friends, playing
         video games (particularly from the <span className="italic">Soulsborne</span> series!), and volunteering at the local dog shelter. I also enjoy{" "}
         playing the drums and jamming with friends! I'm currently learning how to play the guitar as well.
       </p>

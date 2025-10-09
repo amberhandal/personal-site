@@ -2,11 +2,9 @@ import React from "react";
 import { CgCode, CgWorkAlt } from "react-icons/cg";
 import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
 import { LuBook, LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
 import sollumGif from "@/public/sollum.gif";
 import smmartGif from "@/public/SMMART.gif";
-import pen_img from "@/public/pen_temp.jpg";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import pen_img from "@/public/pen_temp.png";
 import { BsBookFill } from "react-icons/bs";
 import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
 
@@ -85,7 +83,7 @@ export const projectsData = [
       "RGB-D pen detection with OpenCV (HSV + contours) and RealSense alignment; hand–eye calibration (Kabsch) to map camera→robot; Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
     link: "",
-    imageUrl: pen_img, // replace with a relevant image when available
+    imageUrl: pen_img, // replace with a relevant gif when available
   },
   {
     title: "SMMARTS Programming Volunteering",
@@ -107,7 +105,7 @@ export const projectsData = [
     title: "Sollum",
     description:
       "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed title with a 25-person cross-functional team; C#/Unity mechanics and optimization.",
-    tags: ["C#", "Unity", "Gameplay"],
+    tags: ["C#", "Unity"],
     link: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
   },
