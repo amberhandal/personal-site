@@ -3,7 +3,7 @@ import { CgCode, CgWorkAlt } from "react-icons/cg";
 import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
 import { LuBook, LuGraduationCap } from "react-icons/lu";
 import sollumGif from "@/public/sollum.gif";
-import crittercollectorGif from "@/public/crittercollectorGif.gif";
+import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
 import { BsBookFill } from "react-icons/bs";
