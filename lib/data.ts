@@ -6,6 +6,7 @@ import sollumGif from "@/public/sollum.gif";
 import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
+import type { Project } from "@/components/projects";
 import { BsBookFill } from "react-icons/bs";
 import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
 
@@ -84,14 +85,15 @@ export const projectsData = [
       "RGB-D pen detection with OpenCV and RealSense alignment with Interbotix/ROS2 control for closed-loop grasping.",
     tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
     link: "",
-    imageUrl: pen_img, // replace with a relevant gif when available
+    imageUrl: pen_img,
   },
   {
     title: "SMMARTS Programming Volunteering",
     description:
       "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations.",
+    tags: ["C#", "Unity"],                 // ✅ add tags here
     link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
-    imageUrl: smmartGif, 
+    imageUrl: smmartGif,
   },
   {
     title: "Sollum",
@@ -107,9 +109,9 @@ export const projectsData = [
       "Backend services for an educational Pokemon Go-style mobile game.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
     link: "",
-    imageUrl: crittercollectorGif, // placeholder
+    imageUrl: crittercollectorGif,
   },
-] as const;
+] as const satisfies readonly Project[];
 
 export const skillsData = [
   "ROS/ROS2",
