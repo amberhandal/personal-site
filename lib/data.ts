@@ -6,6 +6,7 @@ import sollumGif from "@/public/sollum.gif";
 import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
+import coming_soon from "@/public/coming_soon.png";
 import { BsBookFill } from "react-icons/bs";
 import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
 
@@ -52,6 +53,7 @@ export const experiencesData = [
     date: "May 2022 - August 2022",
   },
   {
+    // https://www.youtube.com/watch?v=uhILTsIyKQE
     title: "Research for Critter Collector",
     location: "Gainesville, FL",
     description:
@@ -79,10 +81,18 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Aggro-bots",
+    description:
+      "A swarm of mobile robots running distributed embedded control: time-of-flight sensing, wireless state sync, and real-time pursuit behaviors, all modulated by the user’s heart rate.",
+    tags: ["C", "OpenCV", "Intel RealSense", "Embedded Systems", "Microcontrollers"],
+    link: "https://github.com/Aggrobot-Incorporated/aggrobot",
+    imageUrl: coming_soon,
+  },
+  {
     title: "Vision-Guided Pen Recognition and Robotic Grasping",
     description:
-      "RGB-D pen detection with OpenCV and RealSense alignment with Interbotix/ROS2 control for closed-loop grasping.",
-    tags: ["Python", "OpenCV", "Intel RealSense", "ROS2", "Interbotix"],
+      "RGB-D pen detection with OpenCV and RealSense alignment with Python/ROS 2 control for closed-loop grasping.",
+    tags: ["Python", "ROS 2", "OpenCV", "Intel RealSense", "Interbotix"],
     link: "https://github.com/amberhandal/Arm-Demo",
     imageUrl: pen_img,
   },
@@ -113,25 +123,30 @@ export const projectsData = [
 ] as const;
 
 export const skillsData = [
-  "ROS/ROS2",
+  "ROS/ROS 2",
   "Python",
-  "C/C#/C++",
+  "C",
+  "C#",
+  "C++",
   "OpenCV",
   "Intel RealSense",
-  "Interbotix SDK",
-  "Algorithms",
   "SystemVerilog",
   "OCaml",
   "Linux",
-  "CAD",
   "AWS",
   "TypeScript",
   "GraphQL",
-  "Prisma",
-  "Ruby on Rails",
   "Node.js",
   "MongoDB",
   "Git",
   "Swift",
   "SQL",
+  "CAD",
+  "Algorithms",
+  "Motion Planning",
+  "Computer Vision",
+  "Embedded Systems",
+  "Robotics",
+  "Kinematics",
+  "PCB Design",
 ] as const;
