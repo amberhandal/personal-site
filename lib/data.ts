@@ -1,18 +1,16 @@
 import React from "react";
-import { CgCode, CgWorkAlt } from "react-icons/cg";
-import { FaChalkboardTeacher, FaReact, FaSwift } from "react-icons/fa";
-import { LuBook, LuGraduationCap } from "react-icons/lu";
+import { BsBookFill } from "react-icons/bs";
+import { FaSwift } from "react-icons/fa";
+import { CgWorkAlt } from "react-icons/cg";
+
 import sollumGif from "@/public/sollum.gif";
 import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
 import coming_soon from "@/public/coming_soon.png";
-import { BsBookFill } from "react-icons/bs";
-import { nextImageLoaderRegex } from "next/dist/build/webpack-config";
 
 export const links = [
   { name: "Home", hash: "#home" },
-  { name: "About", hash: "#about" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
   { name: "Experience", hash: "#experience" },
@@ -32,121 +30,108 @@ export const experiencesData = [
     title: "CodePath iOS Tech Fellow",
     location: "Gainesville, FL",
     description:
-      "Co-led a 14-week course for 25+ students with two fellows. Taught Swift app dev (networking, REST APIs, auth), ran code reviews, and mentored students—sharpening communication and teamwork.",
+      "Co-led a 14-week course for 25+ students with two fellows. Taught Swift app dev, ran code reviews, and mentored students.",
     icon: React.createElement(FaSwift),
     date: "August 2021 - December 2021",
-  },
-  {
-    title: "SMMARTS Programming Volunteer Research at CSSALT",
-    location: "Gainesville, FL",
-    description:
-      "Developed a C# Unity tool to quantify arterial perforation accuracy in ultrasound-guided simulations. Implemented real-time probe analytics and presented findings with clinicians to iterate on algorithm design.",
-    icon: React.createElement(BsBookFill),
-    date: "January 2022 - May 2022",
-  },
-  {
-    title: "Software Engineer Intern",
-    location: "Infotech | Gainesville, FL",
-    description:
-      "Worked on a web product (JavaScript/Vue) and led a cohort of interns through an agile cycle. Collaborated across design/engineering to ship features aligned to user needs.",
-    icon: React.createElement(CgWorkAlt),
-    date: "May 2022 - August 2022",
-  },
-  {
-    // https://www.youtube.com/watch?v=uhILTsIyKQE
-    title: "Research for Critter Collector",
-    location: "Gainesville, FL",
-    description:
-      "Backend engineer on a PokémonGo-like educational app. Built Node.js/MongoDB services with a 4-engineer team and partnered with researchers/designers; migrated from Unity to Unreal Engine 5 for mobile performance.",
-    icon: React.createElement(BsBookFill),
-    date: "August 2023 - May 2024",
   },
   {
     title: "Software Engineer",
     location: "Infotech | Gainesville, FL",
     description:
-      "Architected an AWS/Python PDF pipeline for state DOT plan documents, then led a 3-engineer team to customize deployments per DOT. Built backends with TypeScript/GraphQL/Prisma, Ruby on Rails, and AWS; served as client liaison to align features with requirements.",
+      "Architected an AWS/Python PDF pipeline for DOT plan documents; led a 3-engineer team to customize deployments per DOT.",
     icon: React.createElement(CgWorkAlt),
     date: "September 2022 - August 2025",
   },
-  {
-    title: "Began my Master's in Robotics at Northwestern University",
-    location: "Evanston, IL",
-    description:
-      "MS in Robotics with interests in embedded software and computer vision. Projects include RGB-D pen localization and manipulation (PincherX 100 + RealSense), calibration, and control.",
-    icon: React.createElement(BsBookFill),
-    date: "September 2025 - Present",
-  },
 ] as const;
+
+export type Project = {
+  title: string;
+  slug: string;
+  description: string;
+  tags: readonly string[];
+  github?: string;
+  demo?: string; // optional link or embed url
+  imageUrl: any;
+  media?: {
+    videos?: string[]; // "/videos/..." or "https://www.youtube.com/embed/..."
+    images?: any[];    // imported images
+  };
+  longDescription?: string;
+};
 
 export const projectsData = [
   {
     title: "Aggro-bots",
+    slug: "aggrobots",
     description:
-      "A swarm of mobile robots running distributed embedded control: time-of-flight sensing, wireless state sync, and real-time pursuit behaviors, all modulated by the user’s heart rate.",
-    tags: ["C", "OpenCV", "Intel RealSense", "Embedded Systems", "Microcontrollers"],
-    link: "https://github.com/Aggrobot-Incorporated/aggrobot",
+      "Swarm robots with distributed embedded behaviors, ToF sensing, wireless sync, and AprilTag localization.",
+    tags: ["C", "Embedded Systems", "Microcontrollers", "AprilTags", "RealSense"],
+    github: "https://github.com/Aggrobot-Incorporated/aggrobot",
     imageUrl: coming_soon,
+    media: { videos: [], images: [] },
+    longDescription:
+      "Aggro-bots is a multi-robot game system where each robot runs embedded logic for sensing/coordination and shares state wirelessly. Localization uses AprilTags and a RealSense camera pipeline.",
   },
   {
     title: "Vision-Guided Pen Recognition and Robotic Grasping",
+    slug: "msr-pen-grabber",
     description:
-      "RGB-D pen detection with OpenCV and RealSense alignment with Python/ROS 2 control for closed-loop grasping.",
+      "RGB-D pen localization with RealSense + OpenCV, then ROS 2 grasp planning and closed-loop manipulation.",
     tags: ["Python", "ROS 2", "OpenCV", "Intel RealSense", "Interbotix"],
-    link: "https://github.com/amberhandal/Arm-Demo",
+    github: "https://github.com/amberhandal/Arm-Demo",
     imageUrl: pen_img,
+    media: { videos: [], images: [] },
+    longDescription:
+      "Detects a pen in RGB-D, estimates its 3D pose, transforms into the robot frame, and executes grasping in ROS 2.",
   },
   {
     title: "SMMARTS Programming Volunteering",
+    slug: "cssalt-smmarts",
     description:
-      "C# Unity application to measure arterial perforation accuracy in ultrasound-guided simulations.",
+      "C# Unity tool to quantify arterial perforation accuracy in ultrasound-guided simulations.",
     tags: ["C#", "Unity"],
-    link: "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
-    imageUrl: smmartGif, 
+    github:
+      "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
+    imageUrl: smmartGif,
+    media: { videos: [], images: [] },
+    longDescription:
+      "Built scoring/analytics tooling inside Unity to evaluate simulation performance and support iterative feedback.",
   },
   {
     title: "Sollum",
+    slug: "sollum-game",
     description:
       "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed game.",
     tags: ["C#", "Unity"],
-    link: "https://overflow-games.itch.io/sollum",
+    github: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
+    media: { videos: [], images: [] },
   },
   {
     title: "Critter Collector",
-    description:
-      "Backend services for an educational Pokemon Go-style mobile game.",
+    slug: "critter-collector",
+    description: "Backend services for an educational Pokémon Go-style mobile game.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
-    link: "https://github.com/cacticouncil/critter-collector-backend",
+    github: "https://github.com/cacticouncil/critter-collector-backend",
     imageUrl: crittercollectorGif,
+    media: { videos: [], images: [] },
   },
-] as const;
+] satisfies readonly Project[];
 
 export const skillsData = [
   "ROS/ROS 2",
   "Python",
   "C",
-  "C#",
   "C++",
   "OpenCV",
-  "Intel RealSense",
-  "SystemVerilog",
-  "OCaml",
+  "RealSense",
   "Linux",
-  "AWS",
-  "TypeScript",
-  "GraphQL",
-  "Node.js",
-  "MongoDB",
+  "Docker",
   "Git",
-  "Swift",
-  "SQL",
-  "CAD",
-  "Algorithms",
+  "AWS",
   "Motion Planning",
   "Computer Vision",
   "Embedded Systems",
-  "Robotics",
   "Kinematics",
   "PCB Design",
 ] as const;
