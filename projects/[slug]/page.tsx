@@ -36,9 +36,6 @@ function VideoEmbed({ src }: { src: string }) {
   );
 }
 
-/* -----------------------------
-   Page component
------------------------------ */
 export default function ProjectPage({
   params,
 }: {
@@ -49,6 +46,33 @@ export default function ProjectPage({
   if (!project) {
     notFound();
   }
+
+  // ---- Narrow optional fields safely (because projectsData is a union type) ----
+  const github =
+    "github" in project && typeof project.github === "string"
+      ? project.github
+      : undefined;
+
+  const demo =
+    "demo" in project && typeof project.demo === "string" && project.demo.length
+      ? project.demo
+      : undefined;
+
+  const longDescription =
+    "longDescription" in project && typeof project.longDescription === "string"
+      ? project.longDescription
+      : undefined;
+
+  const media =
+    "media" in project && project.media && typeof project.media === "object"
+      ? project.media
+      : undefined;
+
+  const videos =
+    media && "videos" in media && Array.isArray(media.videos) ? media.videos : [];
+
+  const images =
+    media && "images" in media && Array.isArray(media.images) ? media.images : [];
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
@@ -62,31 +86,21 @@ export default function ProjectPage({
 
       {/* Links */}
       <div className="flex gap-6 mb-10">
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
+        {github && (
+          <a href={github} target="_blank" rel="noreferrer" className="underline">
             GitHub
           </a>
         )}
 
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
+        {demo && (
+          <a href={demo} target="_blank" rel="noreferrer" className="underline">
             Demo
           </a>
         )}
       </div>
 
       {/* Hero Image */}
-      {project.imageUrl && (
+      {"imageUrl" in project && project.imageUrl && (
         <div className="mb-10">
           <Image
             src={project.imageUrl}
@@ -97,28 +111,27 @@ export default function ProjectPage({
       )}
 
       {/* Long Description */}
-      {project.longDescription && (
+      {longDescription && (
         <section className="mb-12">
           <h2 className="text-2xl font-medium mb-3">Overview</h2>
           <p className="leading-relaxed text-gray-700 dark:text-white/70">
-            {project.longDescription}
+            {longDescription}
           </p>
         </section>
       )}
 
       {/* Media */}
-      {(project.media?.videos?.length ||
-        project.media?.images?.length) && (
+      {(videos.length > 0 || images.length > 0) && (
         <section className="space-y-8">
           <h2 className="text-2xl font-medium">Media</h2>
 
           {/* Videos */}
-          {project.media?.videos?.map((src, i) => (
+          {videos.map((src, i) => (
             <VideoEmbed key={`video-${i}`} src={src} />
           ))}
 
           {/* Images */}
-          {project.media?.images?.map((img, i) => (
+          {images.map((img, i) => (
             <Image
               key={`img-${i}`}
               src={img}
