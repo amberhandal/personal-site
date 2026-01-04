@@ -10,11 +10,11 @@ import smmartGif from "@/public/SMMART.gif";
 import pen_img from "@/public/pen_temp.png";
 import coming_soon from "@/public/coming_soon.png";
 
-import penpal_img from "@/public/HotDog!.gif";
-import penpal_video_hd from "@/public/HotDog!.mp4";
+import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
-import penpal_video_demo from "@public/Robo-Writer.mp4";
-import penpal_video_rviz from "@public/rviz.mp4"
+export const penpal_video_rviz = "/rviz.mp4";
+export const penpal_video_demo = "/Robo-Writer.mp4";
+export const penpal_video_hd = "/HotDog.mp4"; // use the real filename + extension
 
 
 
