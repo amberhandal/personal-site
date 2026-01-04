@@ -1,2 +1,4 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 public/Robo-Writer.mp4 filter=lfs diff=lfs merge=lfs -text
+public/rviz.mp4 filter=lfs diff=lfs merge=lfs -text
+public/HotDog.mp4 filter=lfs diff=lfs merge=lfs -text
