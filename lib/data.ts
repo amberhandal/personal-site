@@ -12,9 +12,9 @@ import coming_soon from "@/public/coming_soon.png";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
-export const penpal_video_rviz = "public/rviz.mp4";
-export const penpal_video_demo = "public/Robo-Writer.mp4";
-export const penpal_video_hd = "public/HotDog.mp4";
+export const penpal_video_rviz = "@/public/rviz.mp4";
+export const penpal_video_demo = "@/public/Robo-Writer.mp4";
+export const penpal_video_hd = "@/public/HotDog.mp4";
 
 
 
