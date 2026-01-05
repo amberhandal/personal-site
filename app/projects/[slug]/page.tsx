@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { projectsData } from "@/lib/data";
+
+type ImageSrc = string | StaticImageData;
 
 /* -----------------------------
    Helper: video embeds
@@ -35,7 +37,6 @@ function VideoEmbed({ src }: { src: string }) {
       playsInline
       preload="metadata"
     >
-      {/* If you also use webm, add another <source /> line */}
       <source src={src} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
@@ -54,10 +55,6 @@ function Caption({ children }: { children: React.ReactNode }) {
 /* -----------------------------
    Renderer: interleaved blocks
 ----------------------------- */
-/**
- * Renders a narrative page made of typed blocks.
- * Enables text with media embedded between sections.
- */
 function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
   if (!blocks || blocks.length === 0) return null;
 
@@ -90,15 +87,16 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
 
         // ---- image ----
         if (b.type === "image") {
+          const src: ImageSrc = b.src;
+
           return (
             <div key={`image-${i}`} className="space-y-2">
-              {/* Next/Image needs dimensions unless you use `fill` */}
               <div
                 className="relative w-full overflow-hidden rounded-lg border border-black/10"
                 style={{ aspectRatio: "16 / 9" }}
               >
                 <Image
-                  src={b.src}
+                  src={src}
                   alt={b.alt ?? `${title} image ${i + 1}`}
                   fill
                   className="object-contain"
@@ -115,28 +113,31 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
           return (
             <div key={`gallery-${i}`} className="space-y-3">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {b.images?.map((img: any, j: number) => (
-                  <div
-                    key={`gallery-${i}-${j}`}
-                    className="relative w-full overflow-hidden rounded-lg border border-black/10"
-                    style={{ aspectRatio: "16 / 9" }}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt ?? `${title} gallery ${j + 1}`}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 384px"
-                    />
-                  </div>
-                ))}
+                {b.images?.map((img: any, j: number) => {
+                  const src: ImageSrc = img.src;
+
+                  return (
+                    <div
+                      key={`gallery-${i}-${j}`}
+                      className="relative w-full overflow-hidden rounded-lg border border-black/10"
+                      style={{ aspectRatio: "16 / 9" }}
+                    >
+                      <Image
+                        src={src}
+                        alt={img.alt ?? `${title} gallery ${j + 1}`}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 384px"
+                      />
+                    </div>
+                  );
+                })}
               </div>
               {b.caption && <Caption>{b.caption}</Caption>}
             </div>
           );
         }
 
-        // Unknown block type: ignore safely
         return null;
       })}
     </section>
@@ -168,7 +169,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       : undefined;
 
   const videos: string[] = media?.videos ?? [];
-  const images: string[] = media?.images ?? [];
+  const images: ImageSrc[] = media?.images ?? [];
+
+  const imageUrl: ImageSrc | undefined =
+    "imageUrl" in project && project.imageUrl ? (project.imageUrl as ImageSrc) : undefined;
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
@@ -201,14 +205,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
       </div>
 
-      {"imageUrl" in project && project.imageUrl && (
+      {imageUrl && (
         <div className="mb-12">
           <div
             className="relative w-full overflow-hidden rounded-lg border border-black/10"
             style={{ aspectRatio: "16 / 9" }}
           >
             <Image
-              src={project.imageUrl as string}
+              src={imageUrl}
               alt={`${project.title} preview`}
               fill
               className="object-contain"
@@ -218,10 +222,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      {/* Interleaved narrative content */}
       <ProjectContent blocks={content} title={project.title} />
 
-      {/* Fallback: if no narrative blocks exist, show media gallery */}
       {content.length === 0 && (videos.length > 0 || images.length > 0) && (
         <section className="mt-12 space-y-8">
           <h2 className="text-2xl font-medium">Media</h2>
