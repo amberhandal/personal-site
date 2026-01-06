@@ -210,7 +210,7 @@ export const projectsData = [
     title: "Aggrobots",
     slug: "aggrobots",
     description:
-      "Swarm robots with distributed embedded behaviors, ToF sensing, wireless sync, and AprilTag localization.",
+      "Swarm robot game with distributed embedded behaviors, ToF sensing, wireless sync, and AprilTag localization.",
     tags: ["C", "Embedded Systems", "Microcontrollers", "AprilTags", "RealSense"],
     github: "https://github.com/Aggrobot-Incorporated/aggrobot",
     imageUrl: coming_soon,
@@ -228,7 +228,7 @@ export const projectsData = [
       {
         type: "video",
         src: "/videos/aggrobots-demo.mp4",
-        caption: "Swarm behavior demo (replace with your real clip).",
+        caption: "Swarm behavior demo.",
       },
       {
         type: "text",
@@ -268,7 +268,7 @@ export const projectsData = [
     title: "SMMARTS Programming Volunteering",
     slug: "cssalt-smmarts",
     description:
-      "C# Unity tool to quantify arterial perforation accuracy in ultrasound-guided simulations.",
+      "Program to quantify arterial perforation accuracy in ultrasound-guided simulations.",
     tags: ["C#", "Unity"],
     github:
       "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
@@ -296,7 +296,7 @@ export const projectsData = [
     title: "Sollum",
     slug: "sollum-game",
     description:
-      "Systems/gameplay engineering on a 2.5D Lovecraftian climate-themed game.",
+      "A 2.5D Lovecraftian climate-themed game with dialogue and combat systems implemented.",
     tags: ["C#", "Unity"],
     github: "https://overflow-games.itch.io/sollum",
     imageUrl: sollumGif,
@@ -320,7 +320,7 @@ export const projectsData = [
     title: "Critter Collector",
     slug: "critter-collector",
     description:
-      "Backend services for an educational Pokémon Go-style mobile game.",
+      "A educational Pokémon Go-style mobile game for learning about local fauna.",
     tags: ["Node.js", "MongoDB", "REST APIs", "Unreal Engine 5"],
     github: "https://github.com/cacticouncil/critter-collector-backend",
     imageUrl: crittercollectorGif,
