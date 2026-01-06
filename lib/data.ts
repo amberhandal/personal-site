@@ -117,13 +117,13 @@ export const projectsData = [
     title: "PenPal",
     slug: "penpal",
     description:
-      "I built a vision-guided ROS 2 system that reads a real whiteboard and writes short responses back with a 7-DoF Franka arm.",
+      "A vision-guided ROS 2 system that reads a real whiteboard and writes short responses back with a 7-DoF Franka arm.",
     tags: [
       "ROS 2",
       "Robotic Manipulation",
       "Computer Vision",
       "AprilTags",
-      "Intel RealSense",
+      "RealSense",
       "MoveIt",
       "OpenCV",
     ],
@@ -243,7 +243,7 @@ export const projectsData = [
     slug: "msr-pen-grabber",
     description:
       "RGB-D pen localization with RealSense + OpenCV, then ROS 2 grasp planning and closed-loop manipulation.",
-    tags: ["Python", "ROS 2", "OpenCV", "Intel RealSense", "Interbotix"],
+    tags: ["Python", "ROS 2", "OpenCV", "RealSense", "Interbotix"],
     github: "https://github.com/amberhandal/Arm-Demo",
     imageUrl: pen_img,
     media: { videos: [], images: [] },
@@ -260,7 +260,7 @@ export const projectsData = [
       {
         type: "video",
         src: "/videos/pen-grabber-demo.mp4",
-        caption: "Pen detection → pose → grasp (replace with your real clip).",
+        caption: "Pen detection → pose → grasp",
       },
     ],
   },
