@@ -242,7 +242,7 @@ export const projectsData = [
     description:
       "Program to quantify arterial perforation accuracy in ultrasound-guided simulations.",
     tags: ["C#", "Unity"],
-    github:
+    demo:
       "https://simulation.health.ufl.edu/technology-development/augmented-reality-mixed-simulation/smmarts/",
     imageUrl: smmartGif,
     media: { videos: [], images: [] },
