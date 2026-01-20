@@ -273,7 +273,7 @@ export const projectsData = [
     demo: "https://overflow-games.itch.io/sollum",
 
     // keeping this as a separate link (optional)
-    github: "https://overflow-games.itch.io/sollum",
+    github: "https://github.com/aanthonyl/Sollum",
 
     imageUrl: sollumGif,
     media: { videos: [], images: [] },

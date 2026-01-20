@@ -1,4 +1,3 @@
-// components/project.tsx
 "use client";
 
 import { useRef } from "react";
@@ -15,6 +14,7 @@ export default function Project({
   tags,
   slug,
   github,
+  demo,
   imageUrl,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,8 +22,12 @@ export default function Project({
     target: ref,
     offset: ["0 1", "1.33 1"],
   });
+
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
+  const detailsHref = demo ?? `/projects/${slug}`;
+  const isExternal = detailsHref.startsWith("http");
 
   return (
     <motion.div
@@ -40,12 +44,23 @@ export default function Project({
           </p>
 
           <div className="mt-4 flex gap-4">
-            <Link
-              href={`/projects/${slug}`}
-              className="text-gray-800 dark:text-white/70 hover:underline"
-            >
-              View details
-            </Link>
+            {isExternal ? (
+              <a
+                href={detailsHref}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-800 dark:text-white/70 hover:underline"
+              >
+                View details
+              </a>
+            ) : (
+              <Link
+                href={detailsHref}
+                className="text-gray-800 dark:text-white/70 hover:underline"
+              >
+                View details
+              </Link>
+            )}
 
             {github && (
               <a
