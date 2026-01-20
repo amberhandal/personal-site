@@ -7,16 +7,21 @@ import { CgWorkAlt } from "react-icons/cg";
 import sollumGif from "@/public/sollum.gif";
 import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
-import pen_img from "@/public/pen_temp.png";
 import coming_soon from "@/public/coming_soon.png";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
-export const penpal_video_rviz = "@/public/rviz.mp4";
-export const penpal_video_demo = "@/public/Robo-Writer.mp4";
-export const penpal_video_hd = "@/public/HotDog.mp4";
 
-
+/**
+ * ✅ IMPORTANT:
+ * Anything inside /public should be referenced like:
+ *   "/rviz.mp4"
+ * NOT:
+ *   "@/public/rviz.mp4"
+ */
+export const penpal_video_rviz = "/rviz.mp4";
+export const penpal_video_demo = "/Robo-Writer.mp4";
+export const penpal_video_hd = "/HotDog.mp4";
 
 /* =============================
    Nav links
@@ -71,9 +76,6 @@ export const experiencesData = [
 
 /* =============================
    Projects
-   - imageUrl: preview image on the Projects grid
-   - media: used by project page
-   - content: optional interleaved sections (text / video / image) for richer pages
 ============================= */
 
 export type ProjectContentBlock =
@@ -89,7 +91,7 @@ export type ProjectContentBlock =
     }
   | {
       type: "image";
-      src: any; // StaticImageData | string (kept permissive to match your current style)
+      src: any; // StaticImageData | string
       alt: string;
       caption?: string;
     };
@@ -100,15 +102,13 @@ export type Project = {
   description: string;
   tags: readonly string[];
   github?: string;
-  demo?: string; // optional link or embed url
+  demo?: string; // ✅ this can be an external link too
   imageUrl: any;
   media?: {
-    videos?: string[]; // "/videos/..." or "https://www.youtube.com/embed/..."
-    images?: any[]; // imported images
+    videos?: string[];
+    images?: any[];
   };
   longDescription?: string;
-
-  // NEW (optional): interleaved content for the detail page
   content?: ProjectContentBlock[];
 };
 
@@ -130,9 +130,6 @@ export const projectsData = [
     github: "https://github.com/amberhandal/penpal",
     imageUrl: penpal_img,
     media: {
-      // These should be strings under /public/videos/... for your current VideoEmbed.
-      // Example:
-      // penpal_video_hd = "/videos/penpal_hd.mp4"
       videos: [penpal_video_hd, penpal_video_rviz, penpal_video_demo],
       images: [penpal_architecture],
     },
@@ -147,7 +144,6 @@ export const projectsData = [
           "I wanted a robot that could have a *physical* conversation: you write something on a board, it reads it, decides on a response, and writes back. PenPal is that loop — perception to text to motion — running live in ROS 2 with a Franka arm.",
       },
 
-      // 1) penpal_video_hd FIRST
       {
         type: "video",
         src: penpal_video_hd,
@@ -206,6 +202,7 @@ export const projectsData = [
       },
     ],
   },
+
   {
     title: "Aggrobots",
     slug: "aggrobots",
@@ -238,32 +235,7 @@ export const projectsData = [
       },
     ],
   },
-  {
-    title: "Vision-Guided Pen Recognition and Robotic Grasping",
-    slug: "msr-pen-grabber",
-    description:
-      "RGB-D pen localization with RealSense + OpenCV, then ROS 2 grasp planning and closed-loop manipulation.",
-    tags: ["Python", "ROS 2", "OpenCV", "RealSense", "Interbotix"],
-    github: "https://github.com/amberhandal/Arm-Demo",
-    imageUrl: pen_img,
-    media: { videos: [], images: [] },
-    longDescription:
-      "Detects a pen in RGB-D, estimates its 3D pose, transforms into the robot frame, and executes grasping in ROS 2.",
 
-    content: [
-      {
-        type: "text",
-        heading: "Overview",
-        body:
-          "Detects a pen in RGB-D, estimates a 6-DoF pose, transforms into the robot frame, and executes a grasp sequence in ROS 2.",
-      },
-      {
-        type: "video",
-        src: "/videos/pen-grabber-demo.mp4",
-        caption: "Pen detection → pose → grasp",
-      },
-    ],
-  },
   {
     title: "SMMARTS Programming Volunteering",
     slug: "cssalt-smmarts",
@@ -284,21 +256,25 @@ export const projectsData = [
         body:
           "Built scoring and analytics tooling in Unity to quantify performance during ultrasound-guided simulation training.",
       },
-      {
-        type: "image",
-        src: smmartGif,
-        alt: "SMMARTS Unity simulation preview",
-        caption: "Simulation + evaluation tooling.",
-      },
     ],
   },
+
   {
     title: "Sollum",
     slug: "sollum-game",
     description:
       "A 2.5D Lovecraftian climate-themed game with dialogue and combat systems implemented.",
     tags: ["C#", "Unity"],
+
+    /**
+     * ✅ This is the link you want "View Page" to go to.
+     * We'll use demo for that.
+     */
+    demo: "https://overflow-games.itch.io/sollum",
+
+    // keeping this as a separate link (optional)
     github: "https://overflow-games.itch.io/sollum",
+
     imageUrl: sollumGif,
     media: { videos: [], images: [] },
 
@@ -316,6 +292,7 @@ export const projectsData = [
       },
     ],
   },
+
   {
     title: "Critter Collector",
     slug: "critter-collector",
@@ -332,11 +309,6 @@ export const projectsData = [
         heading: "Overview",
         body:
           "Backend services supporting an educational location-based mobile game, including REST APIs and persistence with MongoDB.",
-      },
-      {
-        type: "image",
-        src: crittercollectorGif,
-        alt: "Critter Collector preview",
       },
     ],
   },
