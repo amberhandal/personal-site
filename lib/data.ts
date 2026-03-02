@@ -19,9 +19,9 @@ import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
  * NOT:
  *   "@/public/rviz.mp4"
  */
-export const penpal_video_rviz = "/rviz.mp4";
-export const penpal_video_demo = "/Robo-Writer.mp4";
-export const penpal_video_hd = "/HotDog.mp4";
+export const penpal_video_rviz = "https://www.youtube.com/embed/-VgxG9WaqSw";
+export const penpal_video_demo = "https://www.youtube.com/embed/GDnZjJ9GzQA";
+export const penpal_video_hd = "https://www.youtube.com/embed/mhn6aP8osoQ";
 
 /* =============================
    Nav links
@@ -223,11 +223,6 @@ export const projectsData = [
           "Multi-robot game platform where each robot runs local sensing/behavior logic and shares state wirelessly for coordination and group dynamics.",
       },
       {
-        type: "video",
-        src: "/videos/aggrobots-demo.mp4",
-        caption: "Swarm behavior demo.",
-      },
-      {
         type: "text",
         heading: "Embedded + Coordination",
         body:
@@ -255,6 +250,11 @@ export const projectsData = [
         heading: "Overview",
         body:
           "Built scoring and analytics tooling in Unity to quantify performance during ultrasound-guided simulation training.",
+      },
+      {
+        type: "video",
+        src: "https://www.youtube.com/embed/nFNgHfEuYRw",
+        caption: "SMMARTS simulation demo.",
       },
     ],
   },
