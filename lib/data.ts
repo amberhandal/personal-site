@@ -114,6 +114,135 @@ export type Project = {
 
 export const projectsData = [
   {
+    title: "Autonomous Building Inspection with Unitree Go2",
+    slug: "watchdog",
+    description:
+      "A quadruped robot that autonomously maps buildings, detects safety equipment, and tracks changes between inspection runs using 3D SLAM, frontier exploration, and vision-language segmentation.",
+    tags: [
+      "ROS 2",
+      "SLAM",
+      "Nav2",
+      "Computer Vision",
+      "SAM 3",
+      "C++",
+      "Python",
+      "RealSense",
+    ],
+    // TODO: add github link
+    // github: "",
+    imageUrl: coming_soon,
+    media: { videos: [], images: [] },
+    longDescription:
+      "An end-to-end autonomous building inspection system on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment using SAM 3 vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged.",
+
+    content: [
+      // TODO: add lead video when YouTube URL is available
+      // { type: "video", src: "https://www.youtube.com/embed/VIDEO_ID", caption: "..." },
+
+      {
+        type: "text",
+        heading: "Project Summary",
+        body:
+          "This system implements end-to-end autonomous building inspection on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment (fire extinguishers, exit signs) using SAM 3 (Segment Anything Model 3) vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged — producing annotated floor plans, 3D point clouds with markers, and PDF inspection reports.",
+      },
+
+      // TODO: add block diagram image when created
+      // { type: "image", src: watchdogArchitecture, alt: "WatchDog system architecture block diagram", caption: "..." },
+
+      {
+        type: "text",
+        heading: "System Overview",
+        body:
+          "The system runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the system, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
+      },
+
+      {
+        type: "text",
+        heading: "Mapping & Localization (RTAB-Map)",
+        body:
+          "The system supports two RTAB-Map registration strategies: lidar-only ICP scan matching (robust in featureless environments) and visual + lidar mode combining RGB feature matching with ICP for dense, textured 3D point clouds. In mapping mode, the robot builds a new map from scratch for initial building surveys. In localization mode, it loads an existing database and re-localizes within it for repeat inspection runs focused on change detection.",
+      },
+
+      {
+        type: "text",
+        heading: "Point Cloud Processing",
+        body:
+          "Raw lidar data from the Go2's UTLidar undergoes three-stage filtering before reaching RTAB-Map: height filtering to remove the ground plane and ceiling, voxel grid downsampling at 5cm leaf size to reduce noise, and Euclidean clustering to identify connected obstacle groups and distinguish them from free-space rays.",
+      },
+
+      {
+        type: "text",
+        heading: "Autonomous Navigation (Nav2)",
+        body:
+          "Nav2 maintains a 4m x 4m rolling local costmap using lidar and depth camera for reactive obstacle avoidance, plus a global costmap from the RTAB-Map occupancy grid for path planning. The robot footprint is a 40cm x 24cm rectangle with a 20cm inflation radius. The DWB local planner generates velocity commands capped at 0.3 m/s linear and 1.0 rad/s angular, converted to Unitree Sport API format by a custom bridge node with timeout safety.",
+      },
+
+      {
+        type: "text",
+        heading: "Frontier Exploration",
+        body:
+          "An autonomous frontier-based exploration node identifies boundaries between explored and unexplored cells in the occupancy grid using BFS clustering. It selects the nearest viable frontier, sends it as a Nav2 goal, and monitors for completion or timeout before selecting the next target. This enables fully autonomous room mapping without manual waypoints.",
+      },
+
+      {
+        type: "text",
+        heading: "Visual Inspection (SAM 3)",
+        body:
+          "Every 3 seconds, the inspection node captures synchronized RGB and depth images, sends the RGB frame to a remote SAM 3 server via HTTP, and receives per-object segmentation masks, bounding boxes, confidence scores, and labels for prompted categories. Each 2D detection is projected into 3D using the aligned depth image and camera intrinsics, then transformed into the global map frame via the TF tree, giving each detected object a persistent 3D world position.",
+      },
+
+      {
+        type: "text",
+        heading: "Deduplication & Annotated Overlay",
+        body:
+          "As the robot revisits areas, a spatial deduplication algorithm merges detections of the same label within a configurable distance threshold (1.5m), maintaining a running average of the map position across sightings. The node publishes an annotated image stream with semi-transparent colored segmentation masks, bounding boxes color-coded by change status, and labels with format: [CHANGE_TYPE] label (confidence%). Colors indicate status: NEW (blue), MOVED (orange), UNCHANGED (green).",
+      },
+
+      {
+        type: "text",
+        heading: "Change Detection",
+        body:
+          "When a baseline inspection log is provided, the system classifies each new detection in real-time: UNCHANGED if the same label is found within 1.0m of a baseline position, MOVED if within 2.0m but beyond 1.0m, and NEW if no match is found. Baseline objects not revisited are reported in the final log. A separate change detector node can also compare any two inspection logs offline, publishing 3D RViz markers including arrows indicating movement direction for relocated objects.",
+      },
+
+      {
+        type: "text",
+        heading: "Output Pipeline",
+        body:
+          "On shutdown, the lifecycle manager executes a 7-step export pipeline: save the 2D occupancy grid, shut down all ROS nodes, copy the RTAB-Map database for future localization, export the 3D point cloud to PLY format, inject colored marker spheres at detection positions, generate a 2D building floor plan PNG with labeled markers, and produce a PDF inspection report with change comparison statistics. Everything is collected into a timestamped output folder.",
+      },
+
+      {
+        type: "text",
+        heading: "Hardware & Sensor Integration",
+        body:
+          "The Unitree Go2 communicates via its Sport API, with custom bridge nodes converting odometry to TF transforms and motor encoder data to joint states for RViz. Multiple restamper nodes fix clock drift between the Go2's internal clock and the host PC for every sensor stream. A specialized camera sync restamper ensures RGB and depth frames share identical timestamps — critical for RTAB-Map's visual feature extraction.",
+      },
+
+      {
+        type: "text",
+        heading: "Results",
+        body:
+          "The system successfully maps indoor environments and produces usable 2D occupancy grids and 3D point clouds. SAM 3 reliably detects prompted object categories with confidence scores typically above 80% for clear views. Spatial deduplication reduces redundant detections into single map-frame positions, and the change detection system correctly identifies unchanged objects on repeat visits. Frontier exploration enables fully autonomous room coverage without manual waypoint placement.",
+      },
+
+      {
+        type: "text",
+        heading: "Challenges & Lessons Learned",
+        body:
+          "Timestamp synchronization between the Go2 and host PC required dedicated restamper nodes for every sensor stream — without this, SLAM and navigation fail silently. The real robot's UTLidar pitch (2.878 rad) differs from the simulation default, and using the wrong value causes ground-plane points to appear as obstacles, completely blocking navigation. Depth-based 3D positioning has inherent noise (0.5-1.0m variance), requiring generous deduplication and change detection thresholds. ROS 2 process lifecycle management required a custom signal handler with polling, as standard KeyboardInterrupt doesn't reliably propagate through subprocess groups.",
+      },
+
+      {
+        type: "text",
+        heading: "Future Work",
+        body:
+          "Planned improvements include integrating visual SLAM mode for dense textured 3D building models, tying frontier explorer start/stop to the launch file, expanding detection prompts to additional safety equipment categories, implementing viewpoint-aware change detection that only marks objects as missing if the camera had line-of-sight to the baseline position, and adding a web dashboard for remote inspection monitoring and report viewing.",
+      },
+    ],
+  },
+
+  {
     title: "PenPal",
     slug: "penpal",
     description:

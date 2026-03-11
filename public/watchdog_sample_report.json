@@ -1,0 +1,234 @@
+{
+  "run_id": "run_20260311_143012",
+  "timestamp": "2026-03-11T14:35:28.482103",
+  "baseline_run_id": "run_20260310_194742",
+  "prompts": [
+    "fire extinguisher",
+    "exit sign"
+  ],
+  "num_detections": 7,
+  "changes_summary": {
+    "unchanged": 6,
+    "moved": 0,
+    "new": 0,
+    "missing": 1,
+    "missing_objects": [
+      {
+        "baseline_id": 3,
+        "label": "fire extinguisher",
+        "baseline_position": [
+          3.675340272276242,
+          3.1757204935533614,
+          0.9769724124115462
+        ],
+        "baseline_score": 0.9364655613899231,
+        "status": "MISSING"
+      }
+    ]
+  },
+  "detections": [
+    {
+      "id": 0,
+      "label": "exit sign",
+      "score": 0.8243910074234009,
+      "map_position": [
+        -2.0487311208724185,
+        4.197532018947601,
+        1.2981034517288208
+      ],
+      "centroid_3d_base": [
+        3.5180001258850098,
+        -1.1842553615570068,
+        0.9340117204561862
+      ],
+      "mean_depth_m": 3.5180001258850098,
+      "bbox": [
+        525,
+        151,
+        17,
+        13
+      ],
+      "first_seen": "2026-03-11T14:30:16.104218",
+      "last_seen": "2026-03-11T14:35:28.481940",
+      "sightings": 42,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 0,
+      "distance_to_baseline_m": 0.0510
+    },
+    {
+      "id": 1,
+      "label": "exit sign",
+      "score": 0.7983640432357788,
+      "map_position": [
+        -4.291605831041018,
+        3.043289741820613,
+        1.3217882514953613
+      ],
+      "centroid_3d_base": [
+        4.401999950408936,
+        1.2874109843048032,
+        0.9653481245040894
+      ],
+      "mean_depth_m": 4.401999950408936,
+      "bbox": [
+        141,
+        158,
+        14,
+        12
+      ],
+      "first_seen": "2026-03-11T14:30:16.106012",
+      "last_seen": "2026-03-11T14:35:10.462831",
+      "sightings": 40,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 1,
+      "distance_to_baseline_m": 0.0712
+    },
+    {
+      "id": 2,
+      "label": "fire extinguisher",
+      "score": 0.8812304735183716,
+      "map_position": [
+        -0.7089210605621338,
+        2.9183048204116286,
+        0.4451203781127930
+      ],
+      "centroid_3d_base": [
+        1.2430000305175781,
+        0.02815410293142025,
+        0.15924103558063507
+      ],
+      "mean_depth_m": 1.2430000305175781,
+      "bbox": [
+        298,
+        255,
+        64,
+        188
+      ],
+      "first_seen": "2026-03-11T14:33:02.218450",
+      "last_seen": "2026-03-11T14:34:56.301284",
+      "sightings": 5,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 2,
+      "distance_to_baseline_m": 0.0482
+    },
+    {
+      "id": 3,
+      "label": "exit sign",
+      "score": 0.6893201470375061,
+      "map_position": [
+        3.7102388485202136,
+        3.0914720430988694,
+        1.1724089601734178
+      ],
+      "centroid_3d_base": [
+        1.2010000228881836,
+        0.28941072245538286,
+        0.8423710522651672
+      ],
+      "mean_depth_m": 1.2010000228881836,
+      "bbox": [
+        140,
+        2,
+        40,
+        22
+      ],
+      "first_seen": "2026-03-11T14:33:35.192406",
+      "last_seen": "2026-03-11T14:33:35.192451",
+      "sightings": 1,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 4,
+      "distance_to_baseline_m": 0.0438
+    },
+    {
+      "id": 4,
+      "label": "exit sign",
+      "score": 0.6312884092330933,
+      "map_position": [
+        -3.2201440527811813,
+        6.7085218302740905,
+        1.0213847520828247
+      ],
+      "centroid_3d_base": [
+        5.023000240325928,
+        -0.07214330547992247,
+        0.6828403791300415
+      ],
+      "mean_depth_m": 5.023000240325928,
+      "bbox": [
+        322,
+        205,
+        11,
+        11
+      ],
+      "first_seen": "2026-03-11T14:33:47.183510",
+      "last_seen": "2026-03-11T14:33:47.183538",
+      "sightings": 1,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 5,
+      "distance_to_baseline_m": 0.0524
+    },
+    {
+      "id": 5,
+      "label": "exit sign",
+      "score": 0.5408712029457092,
+      "map_position": [
+        -4.608127022954291,
+        7.621503810243488,
+        1.7340818405151367
+      ],
+      "centroid_3d_base": [
+        4.182000160217285,
+        -0.24108409823504448,
+        1.3071945905685425
+      ],
+      "mean_depth_m": 4.182000160217285,
+      "bbox": [
+        350,
+        103,
+        24,
+        16
+      ],
+      "first_seen": "2026-03-11T14:33:56.194027",
+      "last_seen": "2026-03-11T14:33:56.194058",
+      "sightings": 1,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 6,
+      "distance_to_baseline_m": 0.0510
+    },
+    {
+      "id": 6,
+      "label": "exit sign",
+      "score": 0.8012450933456421,
+      "map_position": [
+        -2.0753102841584207,
+        1.9248610437063217,
+        0.8901247382164001
+      ],
+      "centroid_3d_base": [
+        1.8320000171661377,
+        0.4107820147830816,
+        0.5762103728652000
+      ],
+      "mean_depth_m": 1.8320000171661377,
+      "bbox": [
+        170,
+        164,
+        13,
+        11
+      ],
+      "first_seen": "2026-03-11T14:35:16.297103",
+      "last_seen": "2026-03-11T14:35:28.480284",
+      "sightings": 3,
+      "run_id": "run_20260311_143012",
+      "change_status": "UNCHANGED",
+      "baseline_match_id": 7,
+      "distance_to_baseline_m": 0.0459
+    }
+  ]
+}
