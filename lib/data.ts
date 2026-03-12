@@ -302,7 +302,7 @@ export const projectsData = [
       {
         type: "text",
         heading: "Challenges & Lessons Learned",
-        body: "Seven distinct engineering challenges shaped the final system design.",
+        body: "",
       },
 
       {
