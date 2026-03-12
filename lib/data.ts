@@ -87,6 +87,7 @@ export type ProjectContentBlock =
   | {
       type: "text";
       heading?: string;
+      headingLevel?: "h2" | "h3";
       body: string;
     }
   | {
@@ -274,8 +275,63 @@ export const projectsData = [
       {
         type: "text",
         heading: "Challenges & Lessons Learned",
+        body: "Seven distinct engineering challenges shaped the final system design.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 1: Motion Control Bridge",
         body:
-          "Timestamp synchronization between the Go2 and host PC required dedicated restamper nodes for every sensor stream; without this, SLAM and navigation fail silently. The real robot's UTLidar pitch (2.878 rad) differs from the simulation default, and using the wrong value causes ground-plane points to appear as obstacles, completely blocking navigation. Depth-based 3D positioning has inherent noise (0.5-1.0m variance), requiring generous deduplication and change detection thresholds. ROS 2 process lifecycle management required a custom signal handler with polling, as standard KeyboardInterrupt doesn't reliably propagate through subprocess groups.",
+          "The Go2 doesn't accept standard ROS2 velocity commands natively; Unitree's SDK expects its own Sport API format over a JSON-encoded topic. I wrote a custom bridge (cmdvel_to_sport_bridge) that translates Nav2's /cmd_vel output, while also handling startup sequencing (the robot must stand before accepting motion), implementing a command timeout that publishes zero-velocity on inactivity, and clamping velocities to safe physical limits. The real engineering was in these edge cases around startup state and safety limits, not the protocol translation itself.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 2: Timestamp Synchronization",
+        body:
+          "Timestamp synchronization between the Go2 and host PC caused SLAM and navigation to fail silently with no clear error, just dropped messages. I solved this by writing dedicated restamper nodes for every sensor stream to re-stamp messages with the PC's clock before they reach RTAB-Map or Nav2. This taught me how critical time synchronization is in multi-machine ROS2 systems.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 3: Wireless Network Configuration",
+        body:
+          "With a router mounted on the Go2, my PC's two WiFi interfaces caused DDS discovery to use the wrong one. I configured CycloneDDS to explicitly bind to the correct interface and added peer discovery for the Go2's IP. Large camera images (~900KB) also stalled over WiFi, which I resolved by lowering resolution to 424x240, reducing framerate to 6fps, and using best-effort QoS. Wireless ROS2 requires careful attention to both DDS configuration and message size.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 4: Sensor Selection",
+        body:
+          "Choosing between the depth camera and 3D lidar for the point cloud required experimentation. The RealSense gives color and works well for close obstacles but has a narrow field of view, while the Unitree L2 lidar provides 360-degree coverage but no color. I settled on lidar as the primary source for SLAM and navigation, with the depth camera reserved for SAM segmentation. This taught me to match sensor strengths to specific tasks rather than trying to use one sensor for everything.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 5: Point Cloud Filtering",
+        body:
+          "Raw point clouds include ground points, noise, and the robot's own body, which cause the costmap to see obstacles everywhere. I built a point cloud refiner that removes ground points by height, applies voxel downsampling, and clusters nearby points to identify real obstacles. Tuning the parameters (ground height, voxel size, cluster size) taught me how much preprocessing raw sensor data needs before it becomes useful.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 6: Hardware vs. Simulation Calibration",
+        body:
+          "The real robot's UTLidar pitch transform (2.878 radians) differs from the simulation default, causing ground points to project into the obstacle zone and blocking all navigation. Fixing the URDF resolved it. The takeaway was to never assume simulation parameters transfer directly to hardware.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Challenge 7: Depth Sensor Noise in 3D Detection",
+        body:
+          "Depth-based 3D positioning for object detection has inherent noise of 0.5 to 1.0 meters depending on distance and surface, so the same object detected twice can appear at slightly different positions. Setting generous deduplication thresholds (0.5m) prevents duplicate logging while still catching real changes. This reinforced the importance of accounting for sensor uncertainty in perception pipelines.",
       },
 
       {

@@ -63,10 +63,13 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
       {blocks.map((b, i) => {
         // ---- text ----
         if (b.type === "text") {
+          const Heading = b.headingLevel === "h3" ? "h3" : "h2";
           return (
             <div key={`text-${i}`} className="space-y-3">
               {b.heading && (
-                <h2 className="text-2xl font-medium">{b.heading}</h2>
+                <Heading className={b.headingLevel === "h3" ? "text-lg font-semibold" : "text-2xl font-medium"}>
+                  {b.heading}
+                </Heading>
               )}
               <p className="leading-relaxed text-gray-700 dark:text-white/70">
                 {b.body}
