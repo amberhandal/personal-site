@@ -38,7 +38,13 @@ const nextConfig = {
           ],
         });
       }
-  
+
+      // pdfjs-dist optionally requires canvas; stub it out
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        canvas: false,
+      };
+
       return config;
     },
   };

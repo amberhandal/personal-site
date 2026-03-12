@@ -109,6 +109,11 @@ export type ProjectContentBlock =
       type: "gallery";
       images: { src: any; alt: string; caption?: string; rotate?: boolean }[];
       caption?: string;
+    }
+  | {
+      type: "pdf";
+      src: string; // path under /public, e.g. "/inspection_report_comparison.pdf"
+      caption?: string;
     };
 
 export type Project = {
@@ -285,6 +290,12 @@ export const projectsData = [
         heading: "Output Pipeline",
         body:
           "On shutdown, the lifecycle manager executes a 7-step export pipeline: save the 2D occupancy grid, shut down all ROS nodes, copy the RTAB-Map database for future localization, export the 3D point cloud to PLY format, inject colored marker spheres at detection positions, generate a 2D building floor plan PNG with labeled markers, and produce a PDF inspection report with change comparison statistics. Everything is collected into a timestamped output folder.",
+      },
+
+      {
+        type: "pdf",
+        src: "/inspection_report_comparison.pdf",
+        caption: "Sample inspection report comparing two runs, with change detection summary.",
       },
 
       {
