@@ -12,6 +12,10 @@ import coming_soon from "@/public/coming_soon.png";
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
 import watchdog_architecture from "@/public/System_High-Level.jpeg";
+import rtabmap_loop from "@/public/rtabmap_loop_closure.png";
+import pcd_map from "@/public/pcd_map.png";
+import map_1 from "@/public/2d_map_initial.png";
+import map_2 from "@/public/2d_map_run2.png";
 
 /**
  * ✅ IMPORTANT:
@@ -180,6 +184,22 @@ export const projectsData = [
       },
 
       {
+        type: "gallery",
+        images: [
+          {
+            src: rtabmap_loop,
+            alt: "RTAB-Map loop closure detection using RealSense",
+            caption: "RTAB-Map detecting a loop closure from RealSense RGB-D data.",
+          },
+          {
+            src: pcd_map,
+            alt: "3D point cloud map of the inspected environment",
+            caption: "3D point cloud of the mapped environment exported from RTAB-Map.",
+          },
+        ],
+      },
+
+      {
         type: "text",
         heading: "Autonomous Navigation (Nav2)",
         body:
@@ -218,12 +238,12 @@ export const projectsData = [
         type: "gallery",
         images: [
           {
-            src: "/2d_map_initial.png",
+            src: map_1,
             alt: "2D floor plan from initial inspection run",
             caption: "Run 1: all detected objects mapped at their initial positions.",
           },
           {
-            src: "/2d_map_run2.png",
+            src: map_2,
             alt: "2D floor plan from second inspection run with change detection",
             caption: "Run 2: change detection active — one fire extinguisher flagged as missing.",
           },
