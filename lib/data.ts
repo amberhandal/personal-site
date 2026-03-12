@@ -117,7 +117,7 @@ export const projectsData = [
     title: "Autonomous Building Inspection with Unitree Go2",
     slug: "watchdog",
     description:
-      "A quadruped that autonomously maps buildings, detects safety equipment, and tracks changes between inspection runs.",
+      "A quadruped robot that autonomously maps buildings, detects safety equipment, and tracks changes between inspection runs using 3D SLAM, frontier exploration, and vision-language segmentation.",
     tags: [
       "ROS 2",
       "SLAM",
@@ -246,7 +246,7 @@ export const projectsData = [
     title: "PenPal",
     slug: "penpal",
     description:
-      "A ROS 2 system that reads a real whiteboard and writes responses back using a 7-DoF Franka arm.",
+      "A vision-guided ROS 2 system that reads a real whiteboard and writes short responses back with a 7-DoF Franka arm.",
     tags: [
       "ROS 2",
       "Robotic Manipulation",
