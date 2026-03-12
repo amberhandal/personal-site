@@ -11,6 +11,7 @@ import coming_soon from "@/public/coming_soon.png";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
+import watchdog_architecture from "@/public/Sytem_High-Level.jpeg";
 
 /**
  * ✅ IMPORTANT:
@@ -145,8 +146,12 @@ export const projectsData = [
           "This system implements end-to-end autonomous building inspection on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment (fire extinguishers, exit signs) using SAM 3 (Segment Anything Model 3) vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged, producing annotated floor plans, 3D point clouds with markers, and PDF inspection reports.",
       },
 
-      // TODO: add block diagram image when created
-      // { type: "image", src: watchdogArchitecture, alt: "WatchDog system architecture block diagram", caption: "..." },
+      { 
+        type: "image", 
+        src: watchdog_architecture, 
+        alt: "WatchDog system architecture block diagram", 
+        caption: "High-level system architecture" 
+      },
 
       {
         type: "text",
