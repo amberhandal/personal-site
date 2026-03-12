@@ -117,18 +117,20 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                   const src: ImageSrc = img.src;
 
                   return (
-                    <div
-                      key={`gallery-${i}-${j}`}
-                      className="relative w-full overflow-hidden rounded-lg border border-black/10"
-                      style={{ aspectRatio: "16 / 9" }}
-                    >
-                      <Image
-                        src={src}
-                        alt={img.alt ?? `${title} gallery ${j + 1}`}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 384px"
-                      />
+                    <div key={`gallery-${i}-${j}`} className="space-y-1">
+                      <div
+                        className="relative w-full overflow-hidden rounded-lg border border-black/10"
+                        style={{ aspectRatio: "16 / 9" }}
+                      >
+                        <Image
+                          src={src}
+                          alt={img.alt ?? `${title} gallery ${j + 1}`}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 384px"
+                        />
+                      </div>
+                      {img.caption && <Caption>{img.caption}</Caption>}
                     </div>
                   );
                 })}

@@ -11,7 +11,7 @@ import coming_soon from "@/public/coming_soon.png";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
-import watchdog_architecture from "@/public/Sytem_High-Level.jpeg";
+import watchdog_architecture from "@/public/System_High-Level.jpeg";
 
 /**
  * ✅ IMPORTANT:
@@ -94,6 +94,11 @@ export type ProjectContentBlock =
       type: "image";
       src: any; // StaticImageData | string
       alt: string;
+      caption?: string;
+    }
+  | {
+      type: "gallery";
+      images: { src: any; alt: string; caption?: string }[];
       caption?: string;
     };
 
@@ -207,6 +212,22 @@ export const projectsData = [
         heading: "Change Detection",
         body:
           "When a baseline inspection log is provided, the system classifies each new detection in real-time: UNCHANGED if the same label is found within 1.0m of a baseline position, MOVED if within 2.0m but beyond 1.0m, and NEW if no match is found. Baseline objects not revisited are reported in the final log. A separate change detector node can also compare any two inspection logs offline, publishing 3D RViz markers including arrows indicating movement direction for relocated objects.",
+      },
+
+      {
+        type: "gallery",
+        images: [
+          {
+            src: "/2d_map_initial.png",
+            alt: "2D floor plan from initial inspection run",
+            caption: "Run 1: all detected objects mapped at their initial positions.",
+          },
+          {
+            src: "/2d_map_run2.png",
+            alt: "2D floor plan from second inspection run with change detection",
+            caption: "Run 2: change detection active — one fire extinguisher flagged as missing.",
+          },
+        ],
       },
 
       {
