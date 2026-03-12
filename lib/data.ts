@@ -128,8 +128,7 @@ export const projectsData = [
       "Python",
       "RealSense",
     ],
-    // TODO: add github link
-    // github: "",
+    github: "https://github.com/amberhandal/Go2-Inspector",
     imageUrl: coming_soon,
     media: { videos: [], images: [] },
     longDescription:
@@ -143,7 +142,7 @@ export const projectsData = [
         type: "text",
         heading: "Project Summary",
         body:
-          "This system implements end-to-end autonomous building inspection on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment (fire extinguishers, exit signs) using SAM 3 (Segment Anything Model 3) vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged — producing annotated floor plans, 3D point clouds with markers, and PDF inspection reports.",
+          "This system implements end-to-end autonomous building inspection on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment (fire extinguishers, exit signs) using SAM 3 (Segment Anything Model 3) vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged, producing annotated floor plans, 3D point clouds with markers, and PDF inspection reports.",
       },
 
       // TODO: add block diagram image when created
@@ -216,7 +215,7 @@ export const projectsData = [
         type: "text",
         heading: "Hardware & Sensor Integration",
         body:
-          "The Unitree Go2 communicates via its Sport API, with custom bridge nodes converting odometry to TF transforms and motor encoder data to joint states for RViz. Multiple restamper nodes fix clock drift between the Go2's internal clock and the host PC for every sensor stream. A specialized camera sync restamper ensures RGB and depth frames share identical timestamps — critical for RTAB-Map's visual feature extraction.",
+          "The Unitree Go2 communicates via its Sport API, with custom bridge nodes converting odometry to TF transforms and motor encoder data to joint states for RViz. Multiple restamper nodes fix clock drift between the Go2's internal clock and the host PC for every sensor stream. A specialized camera sync restamper ensures RGB and depth frames share identical timestamps, which is critical for RTAB-Map's visual feature extraction.",
       },
 
       {
@@ -230,7 +229,7 @@ export const projectsData = [
         type: "text",
         heading: "Challenges & Lessons Learned",
         body:
-          "Timestamp synchronization between the Go2 and host PC required dedicated restamper nodes for every sensor stream — without this, SLAM and navigation fail silently. The real robot's UTLidar pitch (2.878 rad) differs from the simulation default, and using the wrong value causes ground-plane points to appear as obstacles, completely blocking navigation. Depth-based 3D positioning has inherent noise (0.5-1.0m variance), requiring generous deduplication and change detection thresholds. ROS 2 process lifecycle management required a custom signal handler with polling, as standard KeyboardInterrupt doesn't reliably propagate through subprocess groups.",
+          "Timestamp synchronization between the Go2 and host PC required dedicated restamper nodes for every sensor stream; without this, SLAM and navigation fail silently. The real robot's UTLidar pitch (2.878 rad) differs from the simulation default, and using the wrong value causes ground-plane points to appear as obstacles, completely blocking navigation. Depth-based 3D positioning has inherent noise (0.5-1.0m variance), requiring generous deduplication and change detection thresholds. ROS 2 process lifecycle management required a custom signal handler with polling, as standard KeyboardInterrupt doesn't reliably propagate through subprocess groups.",
       },
 
       {
@@ -270,7 +269,7 @@ export const projectsData = [
         type: "text",
         heading: "What PenPal does",
         body:
-          "I wanted a robot that could have a *physical* conversation: you write something on a board, it reads it, decides on a response, and writes back. PenPal is that loop — perception to text to motion — running live in ROS 2 with a Franka arm.",
+          "I wanted a robot that could have a *physical* conversation: you write something on a board, it reads it, decides on a response, and writes back. PenPal is that loop (perception to text to motion) running live in ROS 2 with a Franka arm.",
       },
 
       {
