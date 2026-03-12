@@ -129,7 +129,7 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                           src={src}
                           alt={img.alt ?? `${title} gallery ${j + 1}`}
                           fill
-                          className="object-contain"
+                          className={`object-contain${img.rotate ? " rotate-90" : ""}`}
                           sizes="(max-width: 768px) 100vw, 384px"
                         />
                       </div>
