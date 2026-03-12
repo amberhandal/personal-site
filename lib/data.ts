@@ -16,6 +16,10 @@ import rtabmap_loop from "@/public/rtabmap_loop_closure.png";
 import pcd_map from "@/public/pcd_map.png";
 import map_1 from "@/public/2d_map_initial.png";
 import map_2 from "@/public/2d_map_run2.png";
+import run_1 from "@/public/run_1.png";
+import run_2 from "@/public/run_2.png";
+import sam_labeling from "@/public/SAM_Labeling.gif";
+import watchdog_cover from "@/public/watchdog_cover.gif"; // too large for git (113MB) — compress before re-adding
 
 /**
  * ✅ IMPORTANT:
@@ -140,7 +144,7 @@ export const projectsData = [
       "RealSense",
     ],
     github: "https://github.com/amberhandal/Go2-Inspector",
-    imageUrl: coming_soon,
+    imageUrl: sam_labeling,
     media: { videos: [], images: [] },
     longDescription:
       "An end-to-end autonomous building inspection system on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment using SAM 3 vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged.",
@@ -222,10 +226,33 @@ export const projectsData = [
       },
 
       {
+        type: "image",
+        src: sam_labeling,
+        alt: "SAM 3 segmentation demo prompting for tables and exit signs",
+        caption: "SAM 3 segmentation in action: prompted to detect 'tables' and 'exit sign', showing real-time mask generation and bounding boxes on each detected object.",
+      },
+
+      {
         type: "text",
         heading: "Deduplication & Annotated Overlay",
         body:
           "As the robot revisits areas, a spatial deduplication algorithm merges detections of the same label within a configurable distance threshold (1.5m), maintaining a running average of the map position across sightings. The node publishes an annotated image stream with semi-transparent colored segmentation masks, bounding boxes color-coded by change status, and labels with format: [CHANGE_TYPE] label (confidence%). Colors indicate status: NEW (blue), MOVED (orange), UNCHANGED (green).",
+      },
+
+      {
+        type: "gallery",
+        images: [
+          {
+            src: run_1,
+            alt: "SAM 3 detections on initial inspection run",
+            caption: "Initial inspection run: SAM 3 segmentation masks and bounding boxes on detected objects.",
+          },
+          {
+            src: run_2,
+            alt: "SAM 3 detections on second inspection run with change status",
+            caption: "Second run: detections color-coded by change status against the baseline.",
+          },
+        ],
       },
 
       {
