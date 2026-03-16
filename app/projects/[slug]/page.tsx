@@ -200,9 +200,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <main className="mx-auto max-w-4xl px-6 py-24">
       <h1 className="mb-4 text-4xl font-semibold">{project.title}</h1>
 
-      <p className="mb-6 text-lg text-gray-700 dark:text-white/70">
+      <p className="mb-4 text-lg text-gray-700 dark:text-white/70">
         {project.description}
       </p>
+
+      <ul className="mb-4 flex flex-wrap gap-2">
+        {project.tags.map((tag, i) => (
+          <li
+            key={i}
+            className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
 
       <div className="mb-10 flex gap-6">
         {github && (
