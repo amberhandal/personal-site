@@ -13,8 +13,7 @@ export default function Projects() {
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
       <SectionHeading>My projects</SectionHeading>
 
-      {/* Responsive grid: 1 column on mobile, 2 columns on medium+ screens */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {projectsData.map((project, index) => (
           <Project key={index} {...project} />
         ))}
