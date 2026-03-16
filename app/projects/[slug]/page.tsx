@@ -195,8 +195,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const videos: string[] = media?.videos ?? [];
   const images: ImageSrc[] = media?.images ?? [];
 
-  const imageUrl: ImageSrc | undefined =
-    "imageUrl" in project && project.imageUrl ? (project.imageUrl as ImageSrc) : undefined;
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
@@ -228,23 +226,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </a>
         )}
       </div>
-
-      {imageUrl && (
-        <div className="mb-12">
-          <div
-            className="relative w-full overflow-hidden rounded-lg border border-black/10"
-            style={{ aspectRatio: "16 / 9" }}
-          >
-            <Image
-              src={imageUrl}
-              alt={`${project.title} preview`}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
-          </div>
-        </div>
-      )}
 
       <ProjectContent blocks={content} title={project.title} />
 
