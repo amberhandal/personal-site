@@ -30,15 +30,15 @@ export default function PdfViewer({ src, caption }: Props) {
     return () => window.removeEventListener("resize", updateWidth);
   }, [updateWidth]);
 
-  // Page width: in grid mode each page gets ~half the container minus the gap
+  // Each page gets half the container width minus the gap (16px)
   const pageWidth =
     containerWidth > 640
       ? Math.floor((containerWidth - 16) / 2)
       : containerWidth;
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center">
-      {/* Thumbnail grid view */}
+    <div ref={containerRef} className="w-full">
+      {/* Inline grid view */}
       <Document
         file={src}
         onLoadSuccess={({ numPages }) => setNumPages(numPages)}
@@ -49,7 +49,7 @@ export default function PdfViewer({ src, caption }: Props) {
         }
       >
         <div
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 cursor-pointer"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 cursor-pointer mx-auto"
           onClick={() => setExpanded(true)}
           title="Click to expand"
         >
@@ -70,7 +70,7 @@ export default function PdfViewer({ src, caption }: Props) {
       </Document>
 
       {caption && (
-        <p className="mt-2 text-sm text-gray-600 dark:text-white/60">
+        <p className="mt-2 text-center text-sm text-gray-600 dark:text-white/60">
           {caption}
         </p>
       )}
@@ -82,7 +82,7 @@ export default function PdfViewer({ src, caption }: Props) {
           onClick={() => setExpanded(false)}
         >
           <div
-            className="relative max-h-[90vh] max-w-[90vw] overflow-auto rounded-lg bg-white p-4 dark:bg-gray-900"
+            className="relative max-h-[90vh] max-w-[95vw] overflow-auto rounded-lg bg-white p-6 dark:bg-gray-900"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -94,7 +94,7 @@ export default function PdfViewer({ src, caption }: Props) {
             </button>
 
             <Document file={src}>
-              <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {Array.from({ length: numPages }, (_, i) => (
                   <div
                     key={i}
@@ -102,7 +102,7 @@ export default function PdfViewer({ src, caption }: Props) {
                   >
                     <Page
                       pageNumber={i + 1}
-                      width={Math.min(550, window.innerWidth * 0.4)}
+                      width={Math.min(700, window.innerWidth * 0.43)}
                       renderTextLayer={false}
                       renderAnnotationLayer={false}
                     />

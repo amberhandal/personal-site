@@ -124,7 +124,7 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
         // ---- pdf ----
         if (b.type === "pdf") {
           return (
-            <div key={`pdf-${i}`}>
+            <div key={`pdf-${i}`} className="w-full flex justify-center">
               <PdfViewer src={b.src} caption={b.caption} />
             </div>
           );
