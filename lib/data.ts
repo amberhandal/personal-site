@@ -11,7 +11,7 @@ import coming_soon from "@/public/coming_soon.png";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
-import watchdog_architecture from "@/public/System_High-Level.jpeg";
+import watchdog_architecture from "@/public/System_High-Level.svg";
 import rtabmap_loop from "@/public/rtabmap_loop_closure.png";
 import pcd_map from "@/public/pcd_map.png";
 import map_1 from "@/public/2d_map_initial.png";
