@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
-import Image, { type StaticImageData } from "next/image";
+import { type StaticImageData } from "next/image";
 import dynamic from "next/dynamic";
 import { projectsData } from "@/lib/data";
+import ImageLightbox from "@/components/image-lightbox";
 
 const PdfViewer = dynamic(() => import("@/components/pdf-viewer"), {
   ssr: false,
@@ -108,12 +109,10 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                 className="relative w-full overflow-hidden rounded-lg border border-black/10"
                 style={{ aspectRatio: "16 / 9" }}
               >
-                <Image
+                <ImageLightbox
                   src={src}
                   alt={b.alt ?? `${title} image ${i + 1}`}
-                  fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
               {b.caption && <Caption>{b.caption}</Caption>}
@@ -144,12 +143,10 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                         className="relative w-full overflow-hidden rounded-lg border border-black/10"
                         style={{ aspectRatio: "16 / 9" }}
                       >
-                        <Image
+                        <ImageLightbox
                           src={src}
                           alt={img.alt ?? `${title} gallery ${j + 1}`}
-                          fill
                           className={`object-contain${img.rotate ? " rotate-90" : ""}`}
-                          sizes="(max-width: 768px) 100vw, 384px"
                         />
                       </div>
                       {img.caption && <Caption>{img.caption}</Caption>}
@@ -254,12 +251,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               className="relative w-full overflow-hidden rounded-lg border border-black/10"
               style={{ aspectRatio: "16 / 9" }}
             >
-              <Image
+              <ImageLightbox
                 src={src}
                 alt={`${project.title} media ${i + 1}`}
-                fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 768px"
               />
             </div>
           ))}
