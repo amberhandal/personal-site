@@ -1,17 +1,7 @@
 import { notFound } from "next/navigation";
 import { type StaticImageData } from "next/image";
-import dynamic from "next/dynamic";
 import { projectsData } from "@/lib/data";
 import ImageLightbox from "@/components/image-lightbox";
-
-const PdfViewer = dynamic(() => import("@/components/pdf-viewer"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-40 flex items-center justify-center text-sm text-gray-500">
-      Loading report...
-    </div>
-  ),
-});
 
 type ImageSrc = string | StaticImageData;
 
@@ -116,15 +106,6 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                 />
               </div>
               {b.caption && <Caption>{b.caption}</Caption>}
-            </div>
-          );
-        }
-
-        // ---- pdf ----
-        if (b.type === "pdf") {
-          return (
-            <div key={`pdf-${i}`} className="w-full flex justify-center">
-              <PdfViewer src={b.src} caption={b.caption} />
             </div>
           );
         }
