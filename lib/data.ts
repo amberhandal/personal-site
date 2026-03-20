@@ -159,13 +159,6 @@ export const projectsData = [
       // TODO: add lead video when YouTube URL is available
       // { type: "video", src: "https://www.youtube.com/embed/VIDEO_ID", caption: "..." },
 
-      {
-        type: "text",
-        heading: "Project Summary",
-        body:
-          "This system implements end-to-end autonomous building inspection on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment (fire extinguishers, exit signs) using SAM 3 (Segment Anything Model 3) vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged, producing annotated floor plans, 3D point clouds with markers, and PDF inspection reports.",
-      },
-
       { 
         type: "image", 
         src: watchdog_architecture, 
@@ -175,16 +168,32 @@ export const projectsData = [
 
       {
         type: "text",
-        heading: "System Overview",
+        heading: "Overview",
         body:
-          "The system runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the system, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
+          "The robot runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the system, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
       },
 
       {
         type: "text",
         heading: "Mapping & Localization (RTAB-Map)",
         body:
-          "The system supports two RTAB-Map registration strategies: lidar-only ICP scan matching (robust in featureless environments) and visual + lidar mode combining RGB feature matching with ICP for dense, textured 3D point clouds. In mapping mode, the robot builds a new map from scratch for initial building surveys. In localization mode, it loads an existing database and re-localizes within it for repeat inspection runs focused on change detection.",
+          "Supports two RTAB-Map registration strategies and two operating modes.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Lidar-Only ICP Scan Matching",
+        body:
+          "Uses point-to-point ICP registration on 3D lidar scans for odometry and loop closure. This mode is robust in featureless environments (long corridors, blank walls) where visual features are sparse or repetitive. In mapping mode, the robot builds a new map from scratch for initial building surveys. In localization mode, it loads an existing database and re-localizes within it for repeat inspection runs focused on change detection.",
+      },
+
+      {
+        type: "text",
+        headingLevel: "h3",
+        heading: "Visual + Lidar Mode",
+        body:
+          "Combines RGB feature matching from the RealSense camera with ICP scan matching from the lidar. This produces dense, textured 3D point clouds and improves loop closure detection in visually rich environments. Supports both mapping and localization modes for initial surveys and repeat inspection runs.",
       },
 
       {
