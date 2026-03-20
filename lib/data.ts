@@ -19,6 +19,7 @@ import map_2 from "@/public/2d_map_run2.png";
 import run_1 from "@/public/run_1.png";
 import run_2 from "@/public/run_2.png";
 import sam_labeling from "@/public/SAM_Labeling.gif";
+import inspection_report from "@/public/inspection_report-1.png";
 import watchdog_cover from "@/public/watchdog_cover.gif"; // too large for git (113MB) — compress before re-adding
 
 /**
@@ -216,12 +217,12 @@ export const projectsData = [
           "Nav2 maintains a 4m x 4m rolling local costmap using lidar and depth camera for reactive obstacle avoidance, plus a global costmap from the RTAB-Map occupancy grid for path planning. The robot footprint is a 40cm x 24cm rectangle with a 20cm inflation radius. The DWB local planner generates velocity commands capped at 0.3 m/s linear and 1.0 rad/s angular, converted to Unitree Sport API format by a custom bridge node with timeout safety.",
       },
 
-      {
-        type: "text",
-        heading: "Frontier Exploration",
-        body:
-          "An autonomous frontier-based exploration node identifies boundaries between explored and unexplored cells in the occupancy grid using BFS clustering. It selects the nearest viable frontier, sends it as a Nav2 goal, and monitors for completion or timeout before selecting the next target. This enables fully autonomous room mapping without manual waypoints.",
-      },
+      // {
+      //   type: "text",
+      //   heading: "Frontier Exploration",
+      //   body:
+      //     "An autonomous frontier-based exploration node identifies boundaries between explored and unexplored cells in the occupancy grid using BFS clustering. It selects the nearest viable frontier, sends it as a Nav2 goal, and monitors for completion or timeout before selecting the next target. This enables fully autonomous room mapping without manual waypoints.",
+      // },
 
       {
         type: "text",
@@ -293,8 +294,9 @@ export const projectsData = [
       },
 
       {
-        type: "pdf",
-        src: "/inspection_report_comparison.pdf",
+        type: "image",
+        src: inspection_report,
+        alt: "Inspection Change Report comparing two runs",
         caption: "Sample inspection report comparing two runs, with change detection summary.",
       },
 
