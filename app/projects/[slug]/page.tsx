@@ -175,7 +175,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-24">
+    <main className="mx-auto w-[90%] max-w-5xl px-6 py-24">
       <h1 className="mb-4 text-4xl font-semibold">{project.title}</h1>
 
       <p className="mb-4 text-lg text-gray-700 dark:text-white/70">

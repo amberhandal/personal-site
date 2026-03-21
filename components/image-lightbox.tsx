@@ -19,7 +19,7 @@ export default function ImageLightbox({ src, alt, className }: Props) {
         alt={alt}
         fill
         className={`${className ?? "object-contain"} cursor-pointer`}
-        sizes="(max-width: 768px) 100vw, 768px"
+        sizes="(max-width: 768px) 90vw, (max-width: 1280px) 85vw, 1024px"
         onClick={() => setOpen(true)}
       />
 
