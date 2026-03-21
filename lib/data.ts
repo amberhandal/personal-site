@@ -284,7 +284,7 @@ export const projectsData = [
 
       {
         type: "gallery",
-        aspectRatio: "3 / 4",
+        aspectRatio: "4 / 5",
         images: [
           {
             src: map_1,
