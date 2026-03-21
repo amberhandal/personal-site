@@ -14,45 +14,52 @@ export default function ImageWithZoom({ src, zoomSrc, alt, caption }: Props) {
   const [lightbox, setLightbox] = useState<"main" | "zoom" | null>(null);
 
   return (
-    <div className="space-y-1">
-      <div className="relative w-full overflow-hidden rounded-lg border border-black/10"
-           style={{ aspectRatio: "16 / 9" }}>
-        {/* Main image */}
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-contain cursor-pointer"
-          sizes="(max-width: 768px) 90vw, (max-width: 1280px) 85vw, 1024px"
-          onClick={() => setLightbox("main")}
-        />
-
-        {/* Highlight rectangle on top-left quadrant */}
-        <div className="absolute top-[5%] left-[2%] w-[30%] h-[45%] border-2 border-dashed border-yellow-400 rounded pointer-events-none" />
-
-        {/* SVG connector lines from highlight box to zoom panel */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-          {/* Line from bottom-right of highlight to top-left of zoom panel */}
-          <line
-            x1="32%" y1="50%"
-            x2="60%" y2="55%"
-            stroke="#facc15"
-            strokeWidth="1.5"
-            strokeDasharray="6 3"
-          />
-          <line
-            x1="32%" y1="10%"
-            x2="60%" y2="55%"
-            stroke="#facc15"
-            strokeWidth="1.5"
-            strokeDasharray="6 3"
-          />
-        </svg>
-
-        {/* Zoom panel — positioned right side */}
+    <div className="space-y-2">
+      {/* Wrapper that allows zoom panel to overflow */}
+      <div className="relative">
+        {/* Main image container */}
         <div
-          className="absolute right-[2%] top-[55%] w-[38%] border-2 border-yellow-400 rounded-lg overflow-hidden shadow-lg cursor-pointer bg-black"
-          onClick={(e) => { e.stopPropagation(); setLightbox("zoom"); }}
+          className="relative w-full rounded-lg border border-black/10 overflow-hidden"
+          style={{ aspectRatio: "16 / 9" }}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-contain cursor-pointer"
+            sizes="(max-width: 768px) 90vw, (max-width: 1280px) 85vw, 1024px"
+            onClick={() => setLightbox("main")}
+          />
+
+          {/* Highlight rectangle on top-left quadrant */}
+          <div className="absolute top-[5%] left-[2%] w-[30%] h-[45%] border-2 border-dashed border-yellow-400 rounded pointer-events-none" />
+
+          {/* SVG connector lines */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="32%" y1="50%"
+              x2="60%" y2="95%"
+              stroke="#facc15"
+              strokeWidth="1.5"
+              strokeDasharray="6 3"
+            />
+            <line
+              x1="32%" y1="10%"
+              x2="60%" y2="95%"
+              stroke="#facc15"
+              strokeWidth="1.5"
+              strokeDasharray="6 3"
+            />
+          </svg>
+        </div>
+
+        {/* Zoom panel — breaks out below the image box */}
+        <div
+          className="absolute right-[2%] bottom-0 translate-y-[60%] w-[38%] border-2 border-yellow-400 rounded-lg overflow-hidden shadow-lg cursor-pointer bg-black z-10"
+          onClick={() => setLightbox("zoom")}
           title="Click to expand"
         >
           <Image
@@ -66,8 +73,11 @@ export default function ImageWithZoom({ src, zoomSrc, alt, caption }: Props) {
         </div>
       </div>
 
+      {/* Spacer to push caption below the overflowing zoom panel */}
+      <div className="h-20 sm:h-24" />
+
       {caption && (
-        <p className="mt-2 text-sm text-gray-600 dark:text-white/60">
+        <p className="text-sm text-gray-600 dark:text-white/60">
           {caption}
         </p>
       )}
