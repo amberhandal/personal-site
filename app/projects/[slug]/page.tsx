@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { type StaticImageData } from "next/image";
 import { projectsData } from "@/lib/data";
 import ImageLightbox from "@/components/image-lightbox";
+import ImageWithZoom from "@/components/image-with-zoom";
 
 type ImageSrc = string | StaticImageData;
 
@@ -117,6 +118,19 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {b.images?.map((img: any, j: number) => {
                   const src: ImageSrc = img.src;
+
+                  if (img.zoomSrc) {
+                    return (
+                      <div key={`gallery-${i}-${j}`}>
+                        <ImageWithZoom
+                          src={src}
+                          zoomSrc={img.zoomSrc}
+                          alt={img.alt ?? `${title} gallery ${j + 1}`}
+                          caption={img.caption}
+                        />
+                      </div>
+                    );
+                  }
 
                   return (
                     <div key={`gallery-${i}-${j}`} className="space-y-1">

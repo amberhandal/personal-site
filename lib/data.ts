@@ -19,6 +19,8 @@ import map_2 from "@/public/2d_map_run2.png";
 import run_1 from "@/public/run_1.png";
 import run_2 from "@/public/run_2.png";
 import sam_labeling from "@/public/SAM_Labeling.gif";
+import detection_run1 from "@/public/detection_run1.png";
+import detection_run2 from "@/public/detection_run2.png";
 import inspection_report from "@/public/inspection_report-1.png";
 import watchdog_cover from "@/public/watchdog_cover.gif"; // too large for git (113MB) — compress before re-adding
 
@@ -108,7 +110,7 @@ export type ProjectContentBlock =
     }
   | {
       type: "gallery";
-      images: { src: any; alt: string; caption?: string; rotate?: boolean }[];
+      images: { src: any; alt: string; caption?: string; rotate?: boolean; zoomSrc?: any }[];
       caption?: string;
     }
   | {
@@ -259,11 +261,13 @@ export const projectsData = [
         images: [
           {
             src: run_1,
+            zoomSrc: detection_run1,
             alt: "SAM 3 detections on initial inspection run",
             caption: "Initial inspection run: SAM 3 segmentation masks and bounding boxes on detected objects.",
           },
           {
             src: run_2,
+            zoomSrc: detection_run2,
             alt: "SAM 3 detections on second inspection run with change status",
             caption: "Second run: detections color-coded by change status against the baseline.",
           },
