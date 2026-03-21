@@ -136,7 +136,7 @@ function ProjectContent({ blocks, title }: { blocks: any[]; title: string }) {
                     <div key={`gallery-${i}-${j}`} className="space-y-1">
                       <div
                         className="relative w-full overflow-hidden rounded-lg border border-black/10"
-                        style={{ aspectRatio: "16 / 9" }}
+                        style={{ aspectRatio: b.aspectRatio ?? "16 / 9" }}
                       >
                         <ImageLightbox
                           src={src}

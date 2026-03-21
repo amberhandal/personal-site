@@ -112,6 +112,7 @@ export type ProjectContentBlock =
       type: "gallery";
       images: { src: any; alt: string; caption?: string; rotate?: boolean; zoomSrc?: any }[];
       caption?: string;
+      aspectRatio?: string;
     }
   | {
       type: "pdf";
@@ -283,18 +284,17 @@ export const projectsData = [
 
       {
         type: "gallery",
+        aspectRatio: "3 / 4",
         images: [
           {
             src: map_1,
             alt: "2D floor plan from initial inspection run",
             caption: "Run 1: all detected objects mapped at their initial positions.",
-            rotate: true,
           },
           {
             src: map_2,
             alt: "2D floor plan from second inspection run with change detection",
-            caption: "Run 2: change detection active — one fire extinguisher flagged as missing.",
-            rotate: true,
+            caption: "Run 2: change detection active, one fire extinguisher flagged as missing.",
           },
         ],
       },
