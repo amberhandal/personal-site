@@ -261,13 +261,13 @@ export const projectsData = [
         images: [
           {
             src: run_1,
-            zoomSrc: detection_run1,
+            zoomSrc: detection_run2,
             alt: "SAM 3 detections on initial inspection run",
             caption: "Initial inspection run: SAM 3 segmentation masks and bounding boxes on detected objects.",
           },
           {
             src: run_2,
-            zoomSrc: detection_run2,
+            zoomSrc: detection_run1,
             alt: "SAM 3 detections on second inspection run with change status",
             caption: "Second run: detections color-coded by change status against the baseline.",
           },
