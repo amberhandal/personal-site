@@ -22,7 +22,7 @@ import sam_labeling from "@/public/SAM_Labeling.gif";
 import detection_run1 from "@/public/detection_run1.png";
 import detection_run2 from "@/public/detection_run2.png";
 import inspection_report from "@/public/inspection_report-1.png";
-import watchdog_cover from "@/public/watchdog_cover.gif"; // too large for git (113MB) — compress before re-adding
+import watchdog_cover from "@/public/watchdog-cover.png";
 
 /**
  * ✅ IMPORTANT:
@@ -153,14 +153,13 @@ export const projectsData = [
       "RealSense",
     ],
     github: "https://github.com/amberhandal/Go2-Inspector",
-    imageUrl: sam_labeling,
+    imageUrl: watchdog_cover,
     media: { videos: [], images: [] },
     longDescription:
       "An end-to-end autonomous building inspection system on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment using SAM 3 vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged.",
 
     content: [
-      // TODO: add lead video when YouTube URL is available
-      // { type: "video", src: "https://www.youtube.com/embed/VIDEO_ID", caption: "..." },
+      { type: "video", src: "https://www.youtube.com/embed/UDIJpZe_sQY" },
 
       { 
         type: "image", 
