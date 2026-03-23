@@ -172,7 +172,7 @@ export const projectsData = [
         type: "text",
         heading: "Overview",
         body:
-          "The robot runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the system, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
+          "The robot runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the program, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
       },
 
       {
@@ -278,7 +278,7 @@ export const projectsData = [
         type: "text",
         heading: "Change Detection",
         body:
-          "When a baseline inspection log is provided, the system classifies each new detection in real-time: UNCHANGED if the same label is found within 1.0m of a baseline position, MOVED if within 2.0m but beyond 1.0m, and NEW if no match is found. Baseline objects not revisited are reported in the final log. A separate change detector node can also compare any two inspection logs offline, publishing 3D RViz markers including arrows indicating movement direction for relocated objects.",
+          "When a baseline inspection log is provided, new detections are classified in real-time: UNCHANGED if the same label is found within 1.0m of a baseline position, MOVED if within 2.0m but beyond 1.0m, and NEW if no match is found. Baseline objects not revisited are reported in the final log. A separate change detector node can also compare any two inspection logs offline, publishing 3D RViz markers including arrows indicating movement direction for relocated objects.",
       },
 
       {
@@ -323,7 +323,7 @@ export const projectsData = [
         type: "text",
         heading: "Results",
         body:
-          "The system successfully maps indoor environments and produces usable 2D occupancy grids and 3D point clouds. SAM 3 reliably detects prompted object categories with confidence scores typically above 80% for clear views. Spatial deduplication reduces redundant detections into single map-frame positions, and the change detection system correctly identifies unchanged objects on repeat visits. Frontier exploration enables fully autonomous room coverage without manual waypoint placement.",
+          "The robot successfully maps indoor environments and produces usable 2D occupancy grids and 3D point clouds. SAM 3 reliably detects prompted object categories with confidence scores typically above 80% for clear views. Spatial deduplication reduces redundant detections into single map-frame positions, and the change detection pipeline correctly identifies unchanged objects on repeat visits. Frontier exploration enables fully autonomous room coverage without manual waypoint placement.",
       },
 
       {
