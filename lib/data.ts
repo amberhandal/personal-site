@@ -23,6 +23,8 @@ import detection_run1 from "@/public/detection_run1.png";
 import detection_run2 from "@/public/detection_run2.png";
 import inspection_report from "@/public/inspection_report-1.png";
 import watchdog_cover from "@/public/watchdog-cover.png";
+import lowLevel1 from "@/public/Low-level1.svg";
+import lowLevel2 from "@/public/Low-level2.svg";
 
 /**
  * ✅ IMPORTANT:
@@ -173,6 +175,22 @@ export const projectsData = [
         heading: "Overview",
         body:
           "The robot runs on ROS 2 Kilted and is composed of 8 custom C++ nodes, 8 Python scripts, and integrates RTAB-Map (3D SLAM), Nav2 (autonomous navigation), and SAM 3 (vision-language object detection). A single launch file with configurable arguments controls which subsystems are active, supporting workflows from manual teleoperation to fully autonomous inspection with change detection. The entire pipeline is orchestrated by a lifecycle manager script that launches the program, captures all data on shutdown, and produces a self-contained output folder with maps, point clouds, detection logs, and reports.",
+      },
+
+      {
+        type: "gallery",
+        images: [
+          {
+            src: lowLevel1,
+            alt: "Low-level system diagram part 1",
+            caption: "Low-level system architecture: sensing, SLAM, and navigation nodes.",
+          },
+          {
+            src: lowLevel2,
+            alt: "Low-level system diagram part 2",
+            caption: "Low-level system architecture: inspection, detection, and output pipeline.",
+          },
+        ],
       },
 
       {
