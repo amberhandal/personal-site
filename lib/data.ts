@@ -146,6 +146,7 @@ export const projectsData = [
       "ROS 2",
       "SLAM",
       "Nav2",
+      "RTAB-Map",
       "Computer Vision",
       "SAM 3",
       "C++",
