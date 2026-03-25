@@ -159,7 +159,7 @@ export const projectsData = [
       "An end-to-end autonomous building inspection system on a Unitree Go2 quadruped robot. The robot explores unknown indoor environments using frontier-based exploration, builds 2D and 3D maps via RTAB-Map SLAM, and detects safety equipment using SAM 3 vision-language segmentation. On repeat visits, the system compares detections against a baseline to classify objects as new, moved, missing, or unchanged.",
 
     content: [
-      { type: "video", src: "https://www.youtube.com/embed/H1NUHnXivUE" },
+      { type: "video", src: "https://youtu.be/H1NUHnXivUE" },
 
       { 
         type: "image", 
