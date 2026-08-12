@@ -84,6 +84,14 @@ export const experiencesData = [
     icon: React.createElement(BsBookFill),
     date: "Sep 2025 - Present",
   },
+    {
+    title: "Reinforcement Learning Engineer | Perceptive Locomotion",
+    location: "Persona AI | Pensacola, FL",
+    description:
+      "Building the company's first perceptive locomotion capability: vision-conditioned RL policies (PPO, Isaac Lab) trained against customer site requirements, validated sim-to-sim in MuJoCo, and deployed on hardware with RealSense and LiDAR perception in ROS 2.",    
+    icon: React.createElement(CgWorkAlt),
+    date: "June 2026 - Present",
+  },
 ] as const;
 
 /* =============================
