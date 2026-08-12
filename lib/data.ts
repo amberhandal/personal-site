@@ -7,7 +7,7 @@ import { CgWorkAlt } from "react-icons/cg";
 import sollumGif from "@/public/sollum.gif";
 import crittercollectorGif from "@/public/crittercollector.gif";
 import smmartGif from "@/public/SMMART.gif";
-import coming_soon from "@/public/coming_soon.png";
+import aggrobots from "@/public/aggrobots.jpg";
 
 import penpal_img from "@/public/HotDog.gif";
 import penpal_architecture from "@/public/PenPal Architecture.drawio.png";
@@ -494,7 +494,7 @@ export const projectsData = [
       "Swarm robot game with distributed embedded behaviors, ToF sensing, wireless sync, and AprilTag localization.",
     tags: ["C", "Embedded Systems", "Microcontrollers", "AprilTags", "RealSense"],
     github: "https://github.com/Aggrobot-Incorporated/aggrobot",
-    imageUrl: coming_soon,
+    imageUrl: aggrobots,
     media: { videos: [], images: [] },
     longDescription:
       "Aggrobots is a multi-robot game system where each robot runs embedded logic for sensing/coordination and shares state wirelessly. Localization uses AprilTags and a RealSense camera pipeline.",
