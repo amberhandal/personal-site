@@ -27,7 +27,7 @@ export const sendEmail = async (formData: FormData) => {
     // Resend v3 reports API failures in the returned `error`, not by throwing,
     // so this has to be checked explicitly or failures look like successes.
     const { data, error } = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Contact Form <contact@amberhandal.com>",
       to: "amberhandal.dev@gmail.com",
       subject: "Message from contact form",
       reply_to: senderEmail,
