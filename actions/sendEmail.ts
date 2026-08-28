@@ -23,9 +23,10 @@ export const sendEmail = async (formData: FormData) => {
     };
   }
 
-  let data;
   try {
-    data = await resend.emails.send({
+    // Resend v3 reports API failures in the returned `error`, not by throwing,
+    // so this has to be checked explicitly or failures look like successes.
+    const { data, error } = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: "amberhandal.dev@gmail.com",
       subject: "Message from contact form",
@@ -35,13 +36,22 @@ export const sendEmail = async (formData: FormData) => {
         senderEmail: senderEmail,
       }),
     });
+
+    if (error) {
+      console.error("Resend send failed:", error);
+      return {
+        error: getErrorMessage(error),
+      };
+    }
+
+    return {
+      data,
+    };
   } catch (error: unknown) {
+    // network/transport failures still throw
+    console.error("Resend send threw:", error);
     return {
       error: getErrorMessage(error),
     };
   }
-
-  return {
-    data,
-  };
 };
